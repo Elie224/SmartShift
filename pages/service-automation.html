@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IA & automatisation SmartShift : intégration de l'IA en entreprise, automatisation de processus, chatbots et orchestration d'outils.">
+    <title>IA & automatisation des tâches | SmartShift</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .service-features {
+            background: var(--light);
+            padding: 4rem 0;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(31,120,180,0.15);
+        }
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            color: var(--white);
+            font-size: 2rem;
+        }
+        .process-section {
+            padding: 4rem 0;
+        }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem auto;
+        }
+        .pricing-section {
+            background: var(--light);
+            padding: 4rem 0;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .pricing-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s;
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+        .pricing-card.featured {
+            border: 3px solid var(--primary);
+            transform: scale(1.05);
+        }
+        .pricing-card.featured::before {
+            content: 'Recommandé';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        .pricing-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-buttons .btn {
+            min-width: 200px;
+        }
+        @media (max-width: 768px) {
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Accueil SmartShift">
+                <img src="../images/logo.png" alt="SmartShift">
+                <span style="font-size:2rem;font-weight:700;font-family:Poppins,Arial,sans-serif;letter-spacing:1px;text-shadow:0 2px 8px rgba(31,120,180,0.08);line-height:1;margin:0;padding:0;"><span style="color:#155A9E !important;">Smart</span><span style="color:#7FC94C !important;">Shift</span></span>
+            </a>
+            <nav class="navbar" role="navigation" aria-label="Menu principal">
+                <ul class="nav-links">
+                    <li><a href="../index.html#home">Accueil</a></li>
+                    <li><a href="../index.html#services">Services</a></li>
+                    <li><a href="../index.html#about">À propos</a></li>
+                    <li><a href="realisations.html">Réalisations</a></li>
+                    <li><a href="equipe.html">Équipe</a></li>
+                    <li><a href="../index.html#footer">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="devis.html" class="btn btn-primary">Devis gratuit</a>
+                </div>
+            </nav>
+            <div class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+        <section class="hero service-hero fade-in">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="service-icon-large"><i class="fas fa-robot"></i></span>
+                    <h1>IA & automatisation des tâches</h1>
+                    <p class="hero-subtitle">Intégration de l'IA en entreprise, automatisation de processus, chatbots et orchestration d'outils pour gagner en efficacité.</p>
+                </div>
+                <div class="hero-image hero-image-placeholder">
+                    <span class="hero-placeholder-icon"><i class="fas fa-robot"></i></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-detail fade-in">
+            <div class="container">
+                <h2>Nos solutions d'automatisation</h2>
+                <p style="text-align:center;max-width:800px;margin:0 auto 3rem auto;color:var(--gray);font-size:1.1rem;">
+                    Automatisez vos tâches répétitives et optimisez vos processus pour gagner en efficacité et en productivité.
+                </p>
+                
+                <div class="service-cards-grid">
+                    <div class="service-card-mini">
+                        <i class="fas fa-file-alt fa-2x"></i>
+                        <h3>Formulaires automatisés</h3>
+                        <p>Formulaires intelligents qui collectent, traitent et transmettent automatiquement les données.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-cogs fa-2x"></i>
+                        <h3>Mini-logiciels internes</h3>
+                        <p>Applications sur mesure adaptées à vos besoins spécifiques et processus métier.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-comments fa-2x"></i>
+                        <h3>Chatbots intelligents</h3>
+                        <p>Assistants virtuels pour améliorer la relation client et automatiser le support.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-plug fa-2x"></i>
+                        <h3>Intégration d'outils</h3>
+                        <p>Connexion et synchronisation de vos outils existants pour un workflow optimisé.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="service-features fade-in">
+            <div class="container">
+                <h2>Fonctionnalités d'automatisation</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Collecte de données</h3>
+                        <p>Formulaires intelligents avec validation automatique, stockage sécurisé et export des données</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Analytics & Rapports</h3>
+                        <p>Génération automatique de rapports, tableaux de bord et analyses en temps réel</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Notifications automatiques</h3>
+                        <p>Emails, SMS et notifications push automatiques selon vos règles métier</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-sync"></i>
+                        </div>
+                        <h3>Synchronisation</h3>
+                        <p>Synchronisation automatique entre vos différents outils et plateformes</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Sécurité & Conformité</h3>
+                        <p>Protection des données, chiffrement et conformité aux réglementations en vigueur</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Gestion des utilisateurs</h3>
+                        <p>Gestion des droits d'accès, authentification et contrôle des permissions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-section fade-in">
+            <div class="container">
+                <h2>Notre processus d'automatisation</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Audit & Analyse</h3>
+                        <p>Analyse de vos processus actuels, identification des tâches répétitives et définition des objectifs</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Conception & Design</h3>
+                        <p>Conception de la solution automatisée, maquettes des interfaces et définition des workflows</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Développement & Test</h3>
+                        <p>Développement de la solution, tests complets et validation des fonctionnalités</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Déploiement & Formation</h3>
+                        <p>Mise en production, formation des équipes et accompagnement au changement</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-section fade-in">
+            <div class="container">
+                <h2>Nos offres d'automatisation</h2>
+                <p style="text-align:center;max-width:800px;margin:0 auto 3rem auto;color:var(--gray);font-size:1.1rem;">
+                    Des solutions adaptées à tous les niveaux d'automatisation
+                </p>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Formulaires automatisés</h3>
+                        <div class="price">À partir de <br><span>500€</span></div>
+                        <ul class="pricing-features">
+                            <li>Formulaires personnalisés</li>
+                            <li>Validation automatique</li>
+                            <li>Stockage sécurisé</li>
+                            <li>Export des données</li>
+                            <li>Notifications email</li>
+                            <li>Support 3 mois</li>
+                        </ul>
+                        <a href="devis.html" class="btn btn-outline">Demander un devis</a>
+                    </div>
+                    <div class="pricing-card featured">
+                        <h3>Solution complète</h3>
+                        <div class="price">À partir de <br><span>1500€</span></div>
+                        <ul class="pricing-features">
+                            <li>Formulaires + mini-logiciel</li>
+                            <li>Chatbot personnalisé</li>
+                            <li>Intégration d'outils</li>
+                            <li>Tableaux de bord</li>
+                            <li>Rapports automatiques</li>
+                            <li>Formation équipe</li>
+                            <li>Support 6 mois</li>
+                </ul>
+                    <a href="devis.html" class="btn btn-primary">Demander un devis</a>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>Automatisation avancée</h3>
+                        <div class="price">Sur mesure</div>
+                        <ul class="pricing-features">
+                            <li>Solution complète sur mesure</li>
+                            <li>Intégrations multiples</li>
+                            <li>API personnalisées</li>
+                            <li>Maintenance évolutive</li>
+                            <li>Support prioritaire</li>
+                            <li>Formation continue</li>
+                        </ul>
+                        <a href="devis.html" class="btn btn-outline">Demander un devis</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section fade-in">
+            <div class="container">
+                <h2>Prêt à automatiser vos processus ?</h2>
+                <p>Contactez-nous pour analyser vos besoins et proposer une solution d'automatisation adaptée</p>
+                <div class="cta-buttons">
+                    <a href="devis.html" class="btn btn-secondary">Demander un devis</a>
+                    <a href="../index.html#footer" class="btn btn-outline">Nous contacter</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="other-services fade-in">
+            <div class="container">
+                <h2>Nos autres services</h2>
+                <p class="other-services-desc">Découvrez l'ensemble de nos solutions pour accompagner votre entreprise.</p>
+                <div class="other-services-grid">
+                    <a href="service-web.html" class="other-service-link"><i class="fas fa-globe"></i><span>Création de sites web</span></a>
+                    <a href="service-mobile.html" class="other-service-link"><i class="fas fa-mobile-alt"></i><span>Applications mobiles</span></a>
+                    <a href="service-digital.html" class="other-service-link"><i class="fas fa-handshake"></i><span>Accompagnement digitalisation</span></a>
+                    <a href="service-logistics.html" class="other-service-link"><i class="fas fa-boxes"></i><span>Logistique</span></a>
+                    <a href="service-transport.html" class="other-service-link"><i class="fas fa-truck"></i><span>Transport</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo" id="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p id="copyright-footer"></p>
+                <div class="footer-links">
+                    <a href="confidentialite.html">Politique de confidentialité</a>
+                    <a href="conditions.html">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Copyright dynamique
+        const copyright = document.getElementById('copyright-footer');
+        const year = new Date().getFullYear();
+        copyright.innerHTML = `© ${year} SmartShift. Tous droits réservés.`;
+    </script>
+    <script src="/js/script.js"></script>
+</body>
+</html> 

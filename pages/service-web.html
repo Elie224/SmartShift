@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Création de sites web sur mesure pour entreprises. Sites vitrines, e-commerce, applications web. SmartShift, votre partenaire digital.">
+    <title>Création de sites web | SmartShift</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .service-features {
+            background: var(--light);
+            padding: 4rem 0;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(31,120,180,0.15);
+        }
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            color: var(--white);
+            font-size: 2rem;
+        }
+        .process-section {
+            padding: 4rem 0;
+        }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem auto;
+        }
+        .pricing-section {
+            background: var(--light);
+            padding: 4rem 0;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .pricing-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s;
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+        .pricing-card.featured {
+            border: 3px solid var(--primary);
+            transform: scale(1.05);
+        }
+        .pricing-card.featured::before {
+            content: 'Recommandé';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+        .price small {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        .pricing-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-buttons .btn {
+            min-width: 200px;
+        }
+        @media (max-width: 768px) {
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Accueil SmartShift">
+                <img src="../images/logo.png" alt="SmartShift">
+                <span style="font-size:2rem;font-weight:700;font-family:Poppins,Arial,sans-serif;letter-spacing:1px;text-shadow:0 2px 8px rgba(31,120,180,0.08);line-height:1;margin:0;padding:0;"><span style="color:#155A9E !important;">Smart</span><span style="color:#7FC94C !important;">Shift</span></span>
+            </a>
+            <nav class="navbar" role="navigation" aria-label="Menu principal">
+                <ul class="nav-links">
+                    <li><a href="../index.html#home">Accueil</a></li>
+                    <li><a href="../index.html#services">Services</a></li>
+                    <li><a href="../index.html#about">À propos</a></li>
+                    <li><a href="realisations.html">Réalisations</a></li>
+                    <li><a href="equipe.html">Équipe</a></li>
+                    <li><a href="../index.html#footer">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="devis.html" class="btn btn-primary">Devis gratuit</a>
+                </div>
+            </nav>
+            <div class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+        <section class="hero service-hero fade-in">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="service-icon-large"><i class="fas fa-laptop-code"></i></span>
+                    <h1>Création de sites web</h1>
+                    <p class="hero-subtitle">Sites vitrines, e-commerce et applications web sur mesure pour renforcer votre présence en ligne.</p>
+                </div>
+                <div class="hero-image service-web-hero-img">
+                    <img src="../images/sites.jpeg" alt="Création de sites web">
+                </div>
+            </div>
+        </section>
+
+        <section class="services-detail fade-in">
+            <div class="container">
+                <h2>Nos solutions web</h2>
+                <p style="text-align:center;max-width:800px;margin:0 auto 3rem auto;color:var(--gray);font-size:1.1rem;">
+                    Du site vitrine à l'e-commerce, nous créons des sites web modernes, performants et adaptés à vos besoins.
+                </p>
+                <div class="service-cards-grid">
+                    <div class="service-card-mini">
+                        <i class="fas fa-globe fa-2x"></i>
+                        <h3>Sites vitrines</h3>
+                        <p>Site institutionnel, présentation de vos services, formulaire de contact et référencement SEO.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-shopping-cart fa-2x"></i>
+                        <h3>E-commerce</h3>
+                        <p>Boutiques en ligne avec catalogue, paiements sécurisés, gestion des stocks et back-office.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-rocket fa-2x"></i>
+                        <h3>Applications web</h3>
+                        <p>Outils et plateformes web sur mesure pour vos processus métier.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-bolt fa-2x"></i>
+                        <h3>Performance & SEO</h3>
+                        <p>Chargement rapide, SEO optimisé, hébergement fiable et maintenance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="service-features fade-in">
+            <div class="container">
+                <h2>Technologies et fonctionnalités</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Technologies modernes</h3>
+                        <p>HTML5, CSS3, JavaScript, React, Vue.js, Node.js, PHP, Python, bases de données MySQL/MongoDB</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3>Backend & bases de données</h3>
+                        <p>APIs, MySQL, MongoDB, hébergement et sécurisation des données</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>SEO & Marketing</h3>
+                        <p>Optimisation pour les moteurs de recherche, intégration Google Analytics, marketing digital</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Sécurité & Maintenance</h3>
+                        <p>Certificats SSL, protection des données, sauvegardes automatiques, mises à jour régulières</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Hébergement & Déploiement</h3>
+                        <p>Hébergement cloud, CDN, déploiement automatique, monitoring 24/7</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Support & Formation</h3>
+                        <p>Formation utilisateurs, documentation technique, support technique, maintenance évolutive</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-section fade-in">
+            <div class="container">
+                <h2>Notre processus de développement</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Analyse & Conception</h3>
+                        <p>Étude de vos besoins, analyse de la concurrence, définition des fonctionnalités et création des maquettes</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Design & UX</h3>
+                        <p>Création de l'interface utilisateur, design responsive, optimisation de l'expérience utilisateur</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Développement</h3>
+                        <p>Codage des fonctionnalités, intégration des technologies, développement frontend et backend</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Test & Déploiement</h3>
+                        <p>Tests qualité, optimisation performance, déploiement en production et formation utilisateurs</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-section fade-in">
+            <div class="container">
+                <h2>Nos offres de développement</h2>
+                <p style="text-align:center;max-width:800px;margin:0 auto 3rem auto;color:var(--gray);font-size:1.1rem;">
+                    Des solutions adaptées à tous les budgets et besoins
+                </p>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Site Vitrine</h3>
+                        <div class="price">À partir de <br><span>500€</span></div>
+                        <ul class="pricing-features">
+                            <li>Design personnalisé</li>
+                            <li>Responsive design</li>
+                            <li>5 pages incluses</li>
+                            <li>Formulaire de contact</li>
+                            <li>Optimisation SEO basique</li>
+                            <li>Hébergement 1 an</li>
+                            <li>Formation utilisateur</li>
+                        </ul>
+                        <a href="devis.html" class="btn btn-outline">Demander un devis</a>
+                    </div>
+                    <div class="pricing-card featured">
+                        <h3>Site E-commerce</h3>
+                        <div class="price">À partir de <br><span>1500€</span></div>
+                        <ul class="pricing-features">
+                            <li>Design personnalisé</li>
+                            <li>Catalogue produits</li>
+                            <li>Système de paiement</li>
+                            <li>Gestion des stocks</li>
+                            <li>Interface administrateur</li>
+                            <li>Optimisation SEO avancée</li>
+                            <li>Support technique 6 mois</li>
+                        </ul>
+                    <a href="devis.html" class="btn btn-primary">Demander un devis</a>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>Application Mobile</h3>
+                        <div class="price">À partir de <br><span>3000€</span></div>
+                        <ul class="pricing-features">
+                            <li>Design natif iOS/Android</li>
+                            <li>Fonctionnalités sur mesure</li>
+                            <li>Base de données</li>
+                            <li>API backend</li>
+                            <li>Tests qualité</li>
+                            <li>Publication stores</li>
+                            <li>Maintenance 1 an</li>
+                        </ul>
+                        <a href="devis.html" class="btn btn-outline">Demander un devis</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section fade-in">
+            <div class="container">
+                <h2>Prêt à lancer votre projet digital ?</h2>
+                <p>Contactez-nous pour discuter de vos besoins et obtenir un devis personnalisé</p>
+                <div class="cta-buttons">
+                    <a href="devis.html" class="btn btn-secondary">Demander un devis</a>
+                    <a href="../index.html#footer" class="btn btn-outline">Nous contacter</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="other-services fade-in">
+            <div class="container">
+                <h2>Nos autres services</h2>
+                <p class="other-services-desc">Découvrez l'ensemble de nos solutions pour accompagner votre entreprise.</p>
+                <div class="other-services-grid">
+                    <a href="service-mobile.html" class="other-service-link"><i class="fas fa-mobile-alt"></i><span>Applications mobiles</span></a>
+                    <a href="service-digital.html" class="other-service-link"><i class="fas fa-handshake"></i><span>Accompagnement digitalisation</span></a>
+                    <a href="service-automation.html" class="other-service-link"><i class="fas fa-robot"></i><span>IA & automatisation</span></a>
+                    <a href="service-logistics.html" class="other-service-link"><i class="fas fa-boxes"></i><span>Logistique</span></a>
+                    <a href="service-transport.html" class="other-service-link"><i class="fas fa-truck"></i><span>Transport</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo" id="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p id="copyright-footer"></p>
+                <div class="footer-links">
+                    <a href="confidentialite.html">Politique de confidentialité</a>
+                    <a href="conditions.html">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const c = document.getElementById('copyright-footer');
+        if (c) c.innerHTML = '© ' + new Date().getFullYear() + ' SmartShift. Tous droits réservés.';
+    </script>
+    <script src="/js/script.js"></script>
+</body>
+</html> 

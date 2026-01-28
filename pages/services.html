@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Services | SmartShift</title>
+    <meta name="description" content="SmartShift : sites web, applications mobiles, digitalisation, IA & automatisation, logistique et transport. Découvrez nos services.">
+    <meta property="og:title" content="Nos Services – SmartShift">
+    <meta property="og:description" content="Sites web, applications mobiles, digitalisation, IA & automatisation, logistique et transport.">
+    <meta property="og:url" content="https://votre-site.com/services">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nos Services – SmartShift">
+    <meta name="twitter:description" content="Sites web, applications mobiles, digitalisation, IA & automatisation, logistique et transport.">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Accueil SmartShift">
+                <img src="../images/logo.png" alt="SmartShift">
+                <span style="font-size:2rem;font-weight:700;font-family:Poppins,Arial,sans-serif;letter-spacing:1px;text-shadow:0 2px 8px rgba(31,120,180,0.08);line-height:1;margin:0;padding:0;"><span style="color:#155A9E !important;">Smart</span><span style="color:#7FC94C !important;">Shift</span></span>
+            </a>
+            <nav class="navbar" role="navigation" aria-label="Menu principal">
+                <ul class="nav-links">
+                    <li><a href="../index.html#home">Accueil</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="../index.html#about">À propos</a></li>
+                    <li><a href="realisations.html">Réalisations</a></li>
+                    <li><a href="equipe.html">Équipe</a></li>
+                    <li><a href="../index.html#footer">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="devis.html" class="btn btn-primary" aria-label="Demander un devis gratuit">Devis gratuit</a>
+                </div>
+            </nav>
+            <div class="menu-toggle" aria-label="Ouvrir ou fermer le menu" tabindex="0" role="button">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero service-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 id="services-titre">Nos Services</h1>
+                <p id="services-description">Sites web, applications mobiles, accompagnement à la digitalisation, IA & automatisation, logistique et transport.</p>
+                <div class="hero-buttons">
+                    <a href="#services-grid" class="btn btn-primary">Découvrir nos services</a>
+                    <a href="../index.html#footer" class="btn btn-secondary">Nous contacter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services-grid" class="services-section">
+        <div class="container">
+            <div class="services-grid" id="services-container">
+                <!-- Services will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Prêt à démarrer votre projet ?</h2>
+                <p>Contactez-nous pour discuter de vos besoins et obtenir un devis personnalisé.</p>
+                <div class="cta-buttons">
+                    <a href="../index.html#footer" class="btn btn-primary">Nous contacter</a>
+                    <a href="devis.html" class="btn btn-secondary">Demander un devis</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo" id="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p id="copyright-footer"></p>
+                <div class="footer-links">
+                    <a href="confidentialite.html">Politique de confidentialité</a>
+                    <a href="conditions.html">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/script.js"></script>
+    <script>
+        // Services statiques - affichage direct
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('services-container');
+            
+            const services = [
+                { titre: 'Création de sites web', description: 'Sites vitrines, e-commerce et applications web sur mesure. SEO et maintenance.', lien: 'service-web.html', categorie: 'web', image: '../images/sites.jpeg' },
+                { titre: 'Applications mobiles', description: 'Apps iOS et Android, applications métier, géolocalisation et suivi en temps réel.', lien: 'service-mobile.html', categorie: 'mobile', image: '../images/mobiles.jpeg' },
+                { titre: 'Accompagnement à la digitalisation', description: 'Stratégie digitale, formation des équipes, optimisation des processus et conseil.', lien: 'service-digital.html', categorie: 'digital', image: '../images/digital.jpeg' },
+                { titre: 'IA & automatisation des tâches', description: 'Intégration de l\'IA en entreprise, automatisation de processus, chatbots et orchestration d\'outils.', lien: 'service-automation.html', categorie: 'automation' },
+                { titre: 'Logistique', description: 'Gestion logistique, suivi des marchandises, codes-barres & QR codes, optimisation des flux.', lien: 'service-logistics.html', categorie: 'logistics' },
+                { titre: 'Transport', description: 'Applications de transport, gestion de flotte, suivi en temps réel et optimisation des trajets.', lien: 'service-transport.html', categorie: 'transport' }
+            ];
+            const serviceImage = (s) => s.image ? `<img src="${s.image}" alt="${s.titre}">` : '';
+
+            container.innerHTML = services.map(service => `
+                <div class="service-card" data-category="${service.categorie}">
+                    ${serviceImage(service)}
+                    <div class="service-content">
+                        <h3>${service.titre}</h3>
+                        <p>${service.description}</p>
+                        <div class="service-actions">
+                            <a href="${service.lien}" class="btn btn-primary">En savoir plus</a>
+                            <a href="devis.html" class="btn btn-secondary">Demander un devis</a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        });
+        
+        // Copyright dynamique
+        const copyright = document.getElementById('copyright-footer');
+        if (copyright) {
+            const year = new Date().getFullYear();
+            copyright.innerHTML = `© ${year} SmartShift. Tous droits réservés.`;
+        }
+    </script>
+
+    <style>
+        .service-hero {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .services-section {
+            padding: 4rem 0;
+            background: var(--light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .service-content p {
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-details {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-price, .service-duration {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .service-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .service-actions .btn {
+            flex: 1;
+            text-align: center;
+        }
+
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-details {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .service-actions {
+                flex-direction: column;
+            }
+
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</body>
+</html>
+

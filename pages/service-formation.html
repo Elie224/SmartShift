@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Formation en trading et crypto-monnaies pour débutants et avancés. Apprenez à investir et à sécuriser vos actifs numériques.">
+    <title>Formation Trading & Crypto | SmartShift</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .service-features {
+            background: var(--light);
+            padding: 4rem 0;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(31,120,180,0.15);
+        }
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            color: var(--white);
+            font-size: 2rem;
+        }
+        .process-section {
+            padding: 4rem 0;
+        }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem auto;
+        }
+        .pricing-section {
+            background: var(--light);
+            padding: 4rem 0;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .pricing-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s;
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+        .pricing-card.featured {
+            border: 3px solid var(--primary);
+            transform: scale(1.05);
+        }
+        .pricing-card.featured::before {
+            content: 'Populaire';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        .pricing-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-buttons .btn {
+            min-width: 200px;
+        }
+        @media (max-width: 768px) {
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Accueil SmartShift">
+                <img src="../images/logo.png" alt="SmartShift">
+                <span style="font-size:2rem;font-weight:700;font-family:Poppins,Arial,sans-serif;letter-spacing:1px;text-shadow:0 2px 8px rgba(31,120,180,0.08);line-height:1;margin:0;padding:0;">
+                  <span style="color:#155A9E !important;">Smart</span><span style="color:#7FC94C !important;">Shift</span>
+                </span>
+            </a>
+            <nav class="navbar" role="navigation" aria-label="Menu principal">
+                <ul class="nav-links">
+                    <li><a href="../index.html#home">Accueil</a></li>
+                    <li><a href="../index.html#services">Services</a></li>
+                    <li><a href="service-informatique.html">Informatique</a></li>
+                    <li><a href="service-formation.html">Formation Trading & Crypto</a></li>
+                    <li><a href="../index.html#about">À propos</a></li>
+                    <li><a href="realisations.html">Réalisations</a></li>
+                    <li><a href="equipe.html">Équipe</a></li>
+                    <li><a href="../index.html#footer">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="devis.html" class="btn btn-primary">Demander un devis</a>
+                </div>
+            </nav>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+        <section class="hero service-hero fade-in">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="service-icon-large"><i class="fas fa-graduation-cap"></i></span>
+                    <h1>Formation Trading & Crypto</h1>
+                    <p class="hero-subtitle">Maîtrisez les marchés financiers et les crypto-monnaies avec nos formations adaptées à tous les niveaux. Devenez un trader professionnel.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-detail fade-in">
+            <div class="container">
+                <h2>Nos programmes de formation</h2>
+                <p style="text-align:center;max-width:800px;margin:0 auto 3rem auto;color:var(--gray);font-size:1.1rem;">
+                    Des formations complètes et pratiques pour maîtriser le trading et les crypto-monnaies.
+                </p>
+                
+                <div class="service-cards-grid">
+                    <div class="service-card-mini">
+                        <i class="fas fa-chart-line fa-2x"></i>
+                        <h3>Trading traditionnel</h3>
+                        <p>Apprenez les bases du trading, l'analyse technique et fondamentale, la gestion des risques.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-bitcoin fa-2x"></i>
+                        <h3>Crypto-monnaies</h3>
+                        <p>Découvrez l'univers des cryptos, la blockchain, et les stratégies d'investissement digital.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-brain fa-2x"></i>
+                        <h3>Psychologie du trader</h3>
+                        <p>Maîtrisez votre psychologie, gérez vos émotions et développez une mentalité de trader gagnant.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-shield-alt fa-2x"></i>
+                        <h3>Sécurité & Gestion</h3>
+                        <p>Sécurisez vos investissements, gérez votre portefeuille et optimisez vos performances.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="service-features fade-in">
+            <div class="container">
+                <h2>Contenu de nos formations</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Théorie & Concepts</h3>
+                        <p>Fondamentaux des marchés financiers, mécanismes de trading et concepts de base</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>Analyse technique</h3>
+                        <p>Indicateurs, graphiques, patterns et outils d'analyse pour prendre les bonnes décisions</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <h3>Analyse fondamentale</h3>
+                        <p>Étude des données économiques, analyse des entreprises et évaluation des actifs</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <h3>Gestion de portefeuille</h3>
+                        <p>Diversification, allocation d'actifs et stratégies de gestion des risques</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h3>Plateformes de trading</h3>
+                        <p>Maîtrise des outils de trading, interfaces et fonctionnalités avancées</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Communauté & Support</h3>
+                        <p>Accès à une communauté de traders, support continu et échanges d'expériences</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-section fade-in">
+            <div class="container">
+                <h2>Notre méthode d'apprentissage</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Évaluation initiale</h3>
+                        <p>Test de niveau pour adapter le programme à vos connaissances et objectifs</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Formation théorique</h3>
+                        <p>Cours structurés, supports pédagogiques et explications détaillées des concepts</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Pratique & Simulation</h3>
+                        <p>Exercices pratiques, simulations de trading et études de cas réels</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Accompagnement</h3>
+                        <p>Suivi personnalisé, corrections et conseils pour optimiser vos performances</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-section fade-in">
+            <div class="container">
+                <h2>Nos programmes de formation</h2>
+                <p style="text-align:center;max-width:800px;margin:0 auto 3rem auto;color:var(--gray);font-size:1.1rem;">
+                    Des formations adaptées à tous les niveaux et budgets
+                </p>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Formation Débutant</h3>
+                        <div class="price">À partir de <br><span>200€</span></div>
+                        <ul class="pricing-features">
+                            <li>Bases du trading</li>
+                            <li>Introduction aux cryptos</li>
+                            <li>Support de cours</li>
+                            <li>Exercices pratiques</li>
+                            <li>Accès 3 mois</li>
+                            <li>Support email</li>
+                        </ul>
+                        <a href="devis.html" class="btn btn-outline">Demander un devis</a>
+                    </div>
+                    <div class="pricing-card featured">
+                        <h3>Formation Complète</h3>
+                        <div class="price">À partir de <br><span>500€</span></div>
+                        <ul class="pricing-features">
+                            <li>Trading + Crypto</li>
+                            <li>Analyse technique avancée</li>
+                            <li>Gestion des risques</li>
+                            <li>Simulations de trading</li>
+                            <li>Accès 6 mois</li>
+                            <li>Support prioritaire</li>
+                            <li>Communauté privée</li>
+                </ul>
+                        <a href="devis.html" class="btn btn-primary">Demander un devis</a>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>Formation Premium</h3>
+                        <div class="price">À partir de <br><span>1000€</span></div>
+                        <ul class="pricing-features">
+                            <li>Formation complète</li>
+                            <li>Coaching personnalisé</li>
+                            <li>Stratégies avancées</li>
+                            <li>Accès illimité</li>
+                            <li>Support téléphonique</li>
+                            <li>Mentorat individuel</li>
+                </ul>
+                        <a href="devis.html" class="btn btn-outline">Demander un devis</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section fade-in">
+            <div class="container">
+                <h2>Prêt à devenir un trader professionnel ?</h2>
+                <p>Rejoignez nos formations et transformez votre passion en source de revenus</p>
+                <div class="cta-buttons">
+                    <a href="devis.html" class="btn btn-secondary">Demander un devis</a>
+                    <a href="../index.html#footer" class="btn btn-outline">Nous contacter</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="other-services fade-in">
+            <div class="container">
+                <h2>Voir aussi nos autres services</h2>
+                <div class="other-services-grid">
+                    <a href="service-web.html" class="other-service-link">
+                        <i class="fas fa-laptop-code"></i>
+                        <span>Développement web</span>
+                    </a>
+                    <a href="service-transport.html" class="other-service-link">
+                        <i class="fas fa-truck"></i>
+                        <span>Solutions de transport</span>
+                    </a>
+                    <a href="service-design.html" class="other-service-link">
+                        <i class="fas fa-palette"></i>
+                        <span>Design graphique</span>
+                    </a>
+                    <a href="service-automation.html" class="other-service-link">
+                        <i class="fas fa-robot"></i>
+                        <span>Automatisation</span>
+                    </a>
+                    <a href="service-informatique.html" class="other-service-link">
+                        <i class="fas fa-laptop"></i>
+                        <span>Service informatique</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo" id="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p id="copyright-footer"></p>
+                <div class="footer-links">
+                    <a href="confidentialite.html">Politique de confidentialité</a>
+                    <a href="conditions.html">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Copyright dynamique
+        const copyright = document.getElementById('copyright-footer');
+        const year = new Date().getFullYear();
+        copyright.innerHTML = `© ${year} SmartShift. Tous droits réservés.`;
+    </script>
+    <script src="/js/script.js"></script>
+</body>
+</html> 

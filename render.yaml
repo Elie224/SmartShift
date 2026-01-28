@@ -1,0 +1,9 @@
+# Render Blueprint – SmartShift (site statique)
+# https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: smartshift
+    runtime: static
+    buildCommand: "echo 'Static site – no build'"
+    staticPublishPath: .

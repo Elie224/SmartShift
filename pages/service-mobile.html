@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Applications mobiles iOS et Android sur mesure. SmartShift développe vos apps métier, géolocalisation, suivi et interfaces intuitives.">
+    <title>Applications mobiles | SmartShift</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .service-features { background: var(--light); padding: 4rem 0; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .feature-card { background: var(--white); padding: 2rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(31,120,180,0.15); }
+        .feature-icon { width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; color: var(--white); font-size: 2rem; }
+        .process-section { padding: 4rem 0; }
+        .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .process-step { text-align: center; }
+        .step-number { width: 60px; height: 60px; background: var(--secondary); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold; margin: 0 auto 1rem auto; }
+        .pricing-section { background: var(--light); padding: 4rem 0; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .pricing-card { background: var(--white); border-radius: 15px; padding: 2rem; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); position: relative; transition: transform 0.3s; }
+        .pricing-card:hover { transform: translateY(-5px); }
+        .pricing-card.featured { border: 3px solid var(--primary); transform: scale(1.05); }
+        .pricing-card.featured::before { content: 'Recommandé'; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary); color: var(--white); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; font-weight: bold; }
+        .price { font-size: 2.5rem; font-weight: bold; color: var(--primary); margin: 1rem 0; }
+        .price small { font-size: 1rem; color: var(--gray); }
+        .pricing-features { list-style: none; padding: 0; margin: 1.5rem 0; }
+        .pricing-features li { padding: 0.5rem 0; border-bottom: 1px solid var(--gray-light); }
+        .pricing-features li:last-child { border-bottom: none; }
+        .cta-section { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: var(--white); padding: 4rem 0; text-align: center; }
+        .cta-section h2 { color: var(--white); margin-bottom: 1rem; }
+        .cta-section p { font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .cta-buttons .btn { min-width: 200px; }
+        .service-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .service-card-mini { background: var(--white); padding: 2rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
+        .service-card-mini:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(31,120,180,0.15); }
+        .service-card-mini i { color: var(--primary); margin-bottom: 1rem; }
+        @media (max-width: 768px) { .cta-buttons { flex-direction: column; align-items: center; } .pricing-card.featured { transform: none; } }
+    </style>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Accueil SmartShift">
+                <img src="../images/logo.png" alt="SmartShift">
+                <span style="font-size:2rem;font-weight:700;font-family:Poppins,Arial,sans-serif;letter-spacing:1px;text-shadow:0 2px 8px rgba(31,120,180,0.08);line-height:1;margin:0;padding:0;"><span style="color:#155A9E !important;">Smart</span><span style="color:#7FC94C !important;">Shift</span></span>
+            </a>
+            <nav class="navbar" role="navigation" aria-label="Menu principal">
+                <ul class="nav-links">
+                    <li><a href="../index.html#home">Accueil</a></li>
+                    <li><a href="../index.html#services">Services</a></li>
+                    <li><a href="../index.html#about">À propos</a></li>
+                    <li><a href="realisations.html">Réalisations</a></li>
+                    <li><a href="equipe.html">Équipe</a></li>
+                    <li><a href="../index.html#footer">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="devis.html" class="btn btn-primary">Devis gratuit</a>
+                </div>
+            </nav>
+            <div class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+        <section class="hero service-hero fade-in">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="service-icon-large"><i class="fas fa-mobile-alt"></i></span>
+                    <h1>Applications mobiles</h1>
+                    <p class="hero-subtitle">iOS et Android : apps métier, suivi, géolocalisation et interfaces intuitives pour vos équipes et vos clients.</p>
+                </div>
+                <div class="hero-image service-mobile-hero-img">
+                    <img src="../images/mobiles.jpeg" alt="Applications mobiles">
+                </div>
+            </div>
+        </section>
+
+        <section class="services-detail fade-in">
+            <div class="container">
+                <h2>Nos solutions mobiles</h2>
+                <p style="text-align:center;max-width:800px;margin:0 auto 3rem auto;color:var(--gray);font-size:1.1rem;">
+                    Applications natives et cross‑platform pour renforcer votre présence mobile et simplifier vos processus.
+                </p>
+                <div class="service-cards-grid">
+                    <div class="service-card-mini">
+                        <i class="fas fa-mobile-alt fa-2x"></i>
+                        <h3>Apps iOS & Android</h3>
+                        <p>Développement natif ou cross‑platform (React Native, Flutter) pour des performances optimales.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-map-marker-alt fa-2x"></i>
+                        <h3>Géolocalisation & suivi</h3>
+                        <p>Suivi en temps réel, cartes, itinéraires et notifications géolocalisées.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-briefcase fa-2x"></i>
+                        <h3>Applications métier</h3>
+                        <p>Outils sur mesure pour la gestion, les livraisons, la logistique ou le terrain.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-palette fa-2x"></i>
+                        <h3>UX & ergonomie</h3>
+                        <p>Interfaces intuitives, accessibles et adaptées aux usages mobiles.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="service-features fade-in">
+            <div class="container">
+                <h2>Fonctionnalités & technologies</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-code"></i></div>
+                        <h3>Technologies</h3>
+                        <p>React Native, Flutter, Swift, Kotlin. Développement natif ou cross‑platform selon le projet.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-database"></i></div>
+                        <h3>Backend & APIs</h3>
+                        <p>APIs REST, bases de données, synchronisation hors ligne et sécurisation des données.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
+                        <h3>Géolocalisation</h3>
+                        <p>Cartes, traçabilité, géofencing et suivi en temps réel pour livraison et flotte.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-store"></i></div>
+                        <h3>Publication</h3>
+                        <p>Publication sur App Store et Google Play, suivi des mises à jour et maintenance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-section fade-in">
+            <div class="container">
+                <h2>Notre processus</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Cadrage & maquettes</h3>
+                        <p>Analyse des besoins, parcours utilisateur et maquettes d’écrans.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Développement</h3>
+                        <p>Implémentation, intégration APIs, tests sur devices réels.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Tests & déploiement</h3>
+                        <p>Tests QA, publication sur les stores, formation et livraison.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-section fade-in">
+            <div class="container">
+                <h2>Nos offres applications mobiles</h2>
+                <p style="text-align:center;max-width:800px;margin:0 auto 3rem auto;color:var(--gray);font-size:1.1rem;">Des solutions adaptées à vos besoins et à votre budget.</p>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>App simple</h3>
+                        <div class="price">À partir de <br><span>2 500 €</span></div>
+                        <ul class="pricing-features">
+                            <li>iOS ou Android</li>
+                            <li>Interface sur mesure</li>
+                            <li>Fonctionnalités de base</li>
+                            <li>Backend léger</li>
+                            <li>Publication store</li>
+                        </ul>
+                        <a href="devis.html" class="btn btn-outline">Demander un devis</a>
+                    </div>
+                    <div class="pricing-card featured">
+                        <h3>App complète</h3>
+                        <div class="price">À partir de <br><span>5 000 €</span></div>
+                        <ul class="pricing-features">
+                            <li>iOS et Android</li>
+                            <li>Géolocalisation / suivi</li>
+                            <li>API & base de données</li>
+                            <li>Notifications push</li>
+                            <li>Maintenance 1 an</li>
+                        </ul>
+                        <a href="devis.html" class="btn btn-primary">Demander un devis</a>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>App métier avancée</h3>
+                        <div class="price">Sur devis</div>
+                        <ul class="pricing-features">
+                            <li>Fonctionnalités complexes</li>
+                            <li>Intégration logistique / transport</li>
+                            <li>Multi‑utilisateurs & rôles</li>
+                            <li>Support dédié</li>
+                        </ul>
+                        <a href="devis.html" class="btn btn-outline">Demander un devis</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section fade-in">
+            <div class="container">
+                <h2>Prêt à lancer votre application mobile ?</h2>
+                <p>Discutons de votre projet et obtenez un devis personnalisé.</p>
+                <div class="cta-buttons">
+                    <a href="devis.html" class="btn btn-secondary">Demander un devis</a>
+                    <a href="../index.html#footer" class="btn btn-outline">Nous contacter</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="other-services fade-in">
+            <div class="container">
+                <h2>Nos autres services</h2>
+                <p class="other-services-desc">Découvrez l'ensemble de nos solutions pour accompagner votre entreprise.</p>
+                <div class="other-services-grid">
+                    <a href="service-web.html" class="other-service-link"><i class="fas fa-globe"></i><span>Création de sites web</span></a>
+                    <a href="service-digital.html" class="other-service-link"><i class="fas fa-handshake"></i><span>Accompagnement digitalisation</span></a>
+                    <a href="service-automation.html" class="other-service-link"><i class="fas fa-robot"></i><span>IA & automatisation</span></a>
+                    <a href="service-logistics.html" class="other-service-link"><i class="fas fa-boxes"></i><span>Logistique</span></a>
+                    <a href="service-transport.html" class="other-service-link"><i class="fas fa-truck"></i><span>Transport</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo" id="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p id="copyright-footer"></p>
+                <div class="footer-links">
+                    <a href="confidentialite.html">Politique de confidentialité</a>
+                    <a href="conditions.html">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/js/script.js"></script>
+    <script>
+        const c = document.getElementById('copyright-footer');
+        if (c) c.innerHTML = '© ' + new Date().getFullYear() + ' SmartShift. Tous droits réservés.';
+    </script>
+</body>
+</html>

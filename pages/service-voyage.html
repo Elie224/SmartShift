@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Accompagnement pour voyages d'études et de tourisme en Europe, Afrique, Asie. Conseils, organisation, sécurité.">
+    <title>Voyages & Séjours | SmartShift</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .service-features {
+            background: var(--light);
+            padding: 4rem 0;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(31,120,180,0.15);
+        }
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            color: var(--white);
+            font-size: 2rem;
+        }
+        .process-section {
+            padding: 4rem 0;
+        }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem auto;
+        }
+        .pricing-section {
+            background: var(--light);
+            padding: 4rem 0;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .pricing-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s;
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+        .pricing-card.featured {
+            border: 3px solid var(--primary);
+            transform: scale(1.05);
+        }
+        .pricing-card.featured::before {
+            content: 'Populaire';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        .pricing-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-buttons .btn {
+            min-width: 200px;
+        }
+        @media (max-width: 768px) {
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Accueil SmartShift">
+                <img src="../images/logo.png" alt="SmartShift">
+                <span style="font-size:2rem;font-weight:700;font-family:Poppins,Arial,sans-serif;letter-spacing:1px;text-shadow:0 2px 8px rgba(31,120,180,0.08);line-height:1;margin:0;padding:0;">
+                  <span style="color:#155A9E !important;">Smart</span><span style="color:#7FC94C !important;">Shift</span>
+                </span>
+            </a>
+            <nav class="navbar" role="navigation" aria-label="Menu principal">
+                <ul class="nav-links">
+                    <li><a href="../index.html#home">Accueil</a></li>
+                    <li><a href="../index.html#services">Services</a></li>
+                    <li><a href="service-informatique.html">Informatique</a></li>
+                    <li><a href="service-formation.html">Formation Trading & Crypto</a></li>
+                    <li><a href="service-voyage.html">Voyages & Séjours</a></li>
+                    <li><a href="../index.html#about">À propos</a></li>
+                    <li><a href="realisations.html">Réalisations</a></li>
+                    <li><a href="equipe.html">Équipe</a></li>
+                    <li><a href="../index.html#footer">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="devis.html" class="btn btn-primary">Demander un devis</a>
+                </div>
+            </nav>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+        <section class="hero service-hero fade-in">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="service-icon-large"><i class="fas fa-plane"></i></span>
+                    <h1>Voyages & Séjours</h1>
+                    <p class="hero-subtitle">Études et tourisme en Europe, Afrique, Asie : partez l'esprit tranquille avec notre accompagnement sur mesure et professionnel.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-detail fade-in">
+            <div class="container">
+                <h2>Nos services de voyage</h2>
+                <p style="text-align:center;max-width:800px;margin:0 auto 3rem auto;color:var(--gray);font-size:1.1rem;">
+                    Des solutions complètes pour vos projets d'études et de voyage à l'étranger.
+                </p>
+                
+                <div class="service-cards-grid">
+                    <div class="service-card-mini">
+                        <i class="fas fa-graduation-cap fa-2x"></i>
+                        <h3>Voyages d'études</h3>
+                        <p>Accompagnement complet pour vos études à l'étranger : conseils, inscriptions, visas et logement.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-map-marked-alt fa-2x"></i>
+                        <h3>Voyages touristiques</h3>
+                        <p>Organisation de séjours sur mesure avec découverte de sites incontournables et expériences authentiques.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-passport fa-2x"></i>
+                        <h3>Formalités & Visas</h3>
+                        <p>Assistance complète pour les formalités administratives, visas et documents de voyage.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-shield-alt fa-2x"></i>
+                        <h3>Sécurité & Assurance</h3>
+                        <p>Conseils sécurité, assurances voyage et accompagnement pour voyager en toute sérénité.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="service-features fade-in">
+            <div class="container">
+                <h2>Nos destinations et services</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe-europe"></i>
+                        </div>
+                        <h3>Europe</h3>
+                        <p>Études et voyages en France, Allemagne, Espagne, Italie, Pays-Bas et autres pays européens</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe-africa"></i>
+                        </div>
+                        <h3>Afrique</h3>
+                        <p>Découverte du Maroc, Sénégal, Côte d'Ivoire, Afrique du Sud et autres destinations africaines</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <h3>Asie</h3>
+                        <p>Voyages en Chine, Japon, Thaïlande, Vietnam, Singapour et autres pays asiatiques</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Logement</h3>
+                        <p>Recherche et réservation d'hébergements adaptés à vos besoins et budget</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h3>Accompagnement culturel</h3>
+                        <p>Préparation culturelle, conseils d'adaptation et support linguistique</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>Support 24/7</h3>
+                        <p>Assistance téléphonique et support en ligne pendant tout votre séjour</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-section fade-in">
+            <div class="container">
+                <h2>Notre processus d'accompagnement</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Consultation initiale</h3>
+                        <p>Échange sur vos projets, analyse de vos besoins et définition de vos objectifs</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Planification & Préparation</h3>
+                        <p>Élaboration de votre plan de voyage, recherche des meilleures options et conseils personnalisés</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Organisation & Réservations</h3>
+                        <p>Gestion des formalités, réservations et organisation logistique de votre voyage</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Accompagnement & Suivi</h3>
+                        <p>Support pendant votre séjour et suivi post-voyage pour optimiser votre expérience</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-section fade-in">
+            <div class="container">
+                <h2>Nos offres de voyage</h2>
+                <p style="text-align:center;max-width:800px;margin:0 auto 3rem auto;color:var(--gray);font-size:1.1rem;">
+                    Des services adaptés à tous les types de projets de voyage
+                </p>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Conseil & Orientation</h3>
+                        <div class="price">À partir de <br><span>100€</span></div>
+                        <ul class="pricing-features">
+                            <li>Consultation personnalisée</li>
+                            <li>Conseils destination</li>
+                            <li>Guide de voyage</li>
+                            <li>Check-list préparation</li>
+                            <li>Support email</li>
+                            <li>Durée : 2h</li>
+                </ul>
+                        <a href="devis.html" class="btn btn-outline">Demander un devis</a>
+                    </div>
+                    <div class="pricing-card featured">
+                        <h3>Accompagnement complet</h3>
+                        <div class="price">À partir de <br><span>500€</span></div>
+                        <ul class="pricing-features">
+                            <li>Conseil + organisation</li>
+                            <li>Gestion des formalités</li>
+                            <li>Réservations logement</li>
+                            <li>Assistance visa</li>
+                            <li>Support pendant séjour</li>
+                            <li>Suivi post-voyage</li>
+                            <li>Assurance incluse</li>
+                </ul>
+                        <a href="devis.html" class="btn btn-primary">Demander un devis</a>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>Service premium</h3>
+                        <div class="price">Sur mesure</div>
+                        <ul class="pricing-features">
+                            <li>Accompagnement VIP</li>
+                            <li>Transferts privés</li>
+                            <li>Guide personnel</li>
+                            <li>Logement luxe</li>
+                            <li>Support 24/7</li>
+                            <li>Service conciergerie</li>
+                </ul>
+                        <a href="devis.html" class="btn btn-outline">Demander un devis</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section fade-in">
+            <div class="container">
+                <h2>Prêt à réaliser vos rêves de voyage ?</h2>
+                <p>Contactez-nous pour planifier votre prochaine aventure à l'étranger</p>
+                <div class="cta-buttons">
+                    <a href="devis.html" class="btn btn-secondary">Demander un devis</a>
+                    <a href="../index.html#footer" class="btn btn-outline">Nous contacter</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="other-services fade-in">
+            <div class="container">
+                <h2>Voir aussi nos autres services</h2>
+                <div class="other-services-grid">
+                    <a href="service-web.html" class="other-service-link">
+                        <i class="fas fa-laptop-code"></i>
+                        <span>Développement web</span>
+                    </a>
+                    <a href="service-transport.html" class="other-service-link">
+                        <i class="fas fa-truck"></i>
+                        <span>Solutions de transport</span>
+                    </a>
+                    <a href="service-design.html" class="other-service-link">
+                        <i class="fas fa-palette"></i>
+                        <span>Design graphique</span>
+                    </a>
+                    <a href="service-automation.html" class="other-service-link">
+                        <i class="fas fa-robot"></i>
+                        <span>Automatisation</span>
+                    </a>
+                    <a href="service-informatique.html" class="other-service-link">
+                        <i class="fas fa-laptop"></i>
+                        <span>Service informatique</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo" id="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p id="copyright-footer"></p>
+                <div class="footer-links">
+                    <a href="confidentialite.html">Politique de confidentialité</a>
+                    <a href="conditions.html">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Copyright dynamique
+        const copyright = document.getElementById('copyright-footer');
+        const year = new Date().getFullYear();
+        copyright.innerHTML = `© ${year} SmartShift. Tous droits réservés.`;
+    </script>
+    <script src="/js/script.js"></script>
+</body>
+</html> 

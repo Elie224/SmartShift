@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Transport SmartShift : applications de transport, gestion de flotte, suivi en temps réel, optimisation des trajets.">
+    <title>Transport | SmartShift</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .service-features {
+            background: var(--light);
+            padding: 4rem 0;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(31,120,180,0.15);
+        }
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            color: var(--white);
+            font-size: 2rem;
+        }
+        .process-section {
+            padding: 4rem 0;
+        }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem auto;
+        }
+        .pricing-section {
+            background: var(--light);
+            padding: 4rem 0;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .pricing-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s;
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+        .pricing-card.featured {
+            border: 3px solid var(--primary);
+            transform: scale(1.05);
+        }
+        .pricing-card.featured::before {
+            content: 'Recommandé';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        .pricing-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-buttons .btn {
+            min-width: 200px;
+        }
+        @media (max-width: 768px) {
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Accueil SmartShift">
+                <img src="../images/logo.png" alt="SmartShift">
+                <span style="font-size:2rem;font-weight:700;font-family:Poppins,Arial,sans-serif;letter-spacing:1px;text-shadow:0 2px 8px rgba(31,120,180,0.08);line-height:1;margin:0;padding:0;"><span style="color:#155A9E !important;">Smart</span><span style="color:#7FC94C !important;">Shift</span></span>
+            </a>
+            <nav class="navbar" role="navigation" aria-label="Menu principal">
+                <ul class="nav-links">
+                    <li><a href="../index.html#home">Accueil</a></li>
+                    <li><a href="../index.html#services">Services</a></li>
+                    <li><a href="../index.html#about">À propos</a></li>
+                    <li><a href="realisations.html">Réalisations</a></li>
+                    <li><a href="equipe.html">Équipe</a></li>
+                    <li><a href="../index.html#footer">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="devis.html" class="btn btn-primary">Devis gratuit</a>
+                </div>
+            </nav>
+            <div class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+        <section class="hero service-hero fade-in">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="service-icon-large"><i class="fas fa-truck"></i></span>
+                    <h1>Transport</h1>
+                    <p class="hero-subtitle">Plateformes de réservation, gestion de flotte, suivi en temps réel et optimisation des trajets pour votre activité de transport.</p>
+                </div>
+                <div class="hero-image hero-image-placeholder">
+                    <span class="hero-placeholder-icon"><i class="fas fa-truck"></i></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-detail fade-in">
+            <div class="container">
+                <h2>Nos solutions de transport intelligentes</h2>
+                <p style="text-align:center;max-width:800px;margin:0 auto 3rem auto;color:var(--gray);font-size:1.1rem;">
+                    Transformez votre activité de transport avec nos solutions digitales innovantes et performantes.
+                </p>
+                
+                <div class="service-cards-grid">
+                    <div class="service-card-mini">
+                        <i class="fas fa-calendar-check fa-2x"></i>
+                        <h3>Plateformes de réservation</h3>
+                        <p>Interfaces modernes pour la réservation en ligne, gestion des disponibilités et paiements sécurisés.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-route fa-2x"></i>
+                        <h3>Gestion de flotte</h3>
+                        <p>Suivi GPS en temps réel, optimisation des trajets, maintenance préventive et gestion des véhicules.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-mobile-alt fa-2x"></i>
+                        <h3>Applications mobiles</h3>
+                        <p>Apps dédiées pour chauffeurs et clients avec géolocalisation, notifications et suivi en direct.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-chart-line fa-2x"></i>
+                        <h3>Analytics & Rapports</h3>
+                        <p>Tableaux de bord, statistiques détaillées, analyses de performance et rapports automatisés.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="service-features fade-in">
+            <div class="container">
+                <h2>Fonctionnalités avancées</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3>Géolocalisation avancée</h3>
+                        <p>Suivi GPS en temps réel, géofencing, optimisation des itinéraires et estimation des temps d'arrivée</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h3>Paiements intégrés</h3>
+                        <p>Paiements en ligne sécurisés, facturation automatique, gestion des devises et rapports financiers</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <h3>Notifications intelligentes</h3>
+                        <p>SMS, emails et push notifications pour informer clients et chauffeurs des statuts en temps réel</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Gestion des utilisateurs</h3>
+                        <p>Profils clients et chauffeurs, système de notation, historique des courses et fidélisation</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Sécurité & Conformité</h3>
+                        <p>Protection des données, conformité RGPD, vérification des chauffeurs et assurance intégrée</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud & Scalabilité</h3>
+                        <p>Infrastructure cloud robuste, montée en charge automatique et disponibilité 24/7</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-section fade-in">
+            <div class="container">
+                <h2>Notre processus de développement</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Analyse des besoins</h3>
+                        <p>Étude de votre activité, analyse des flux de transport, définition des fonctionnalités spécifiques</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Conception & Design</h3>
+                        <p>Maquettes des interfaces, design responsive, expérience utilisateur optimisée pour mobile</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Développement</h3>
+                        <p>Codage des plateformes web et mobiles, intégration GPS, développement des APIs</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Test & Déploiement</h3>
+                        <p>Tests complets, formation des équipes, déploiement progressif et support continu</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-section fade-in">
+            <div class="container">
+                <h2>Nos offres de solutions transport</h2>
+                <p style="text-align:center;max-width:800px;margin:0 auto 3rem auto;color:var(--gray);font-size:1.1rem;">
+                    Des solutions adaptées à tous les types d'activités de transport
+                </p>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Plateforme de base</h3>
+                        <div class="price">À partir de <br><span>2000€</span></div>
+                        <ul class="pricing-features">
+                            <li>Site web de réservation</li>
+                            <li>Interface administrateur</li>
+                            <li>Gestion des disponibilités</li>
+                            <li>Paiements en ligne</li>
+                            <li>Notifications email/SMS</li>
+                            <li>Support technique 6 mois</li>
+                        </ul>
+                        <a href="devis.html" class="btn btn-outline">Demander un devis</a>
+                    </div>
+                    <div class="pricing-card featured">
+                        <h3>Solution complète</h3>
+                        <div class="price">À partir de <br><span>5000€</span></div>
+                        <ul class="pricing-features">
+                            <li>Plateforme web + app mobile</li>
+                            <li>Suivi GPS en temps réel</li>
+                            <li>Gestion de flotte avancée</li>
+                            <li>Analytics et rapports</li>
+                            <li>API personnalisée</li>
+                            <li>Formation complète</li>
+                            <li>Support 1 an</li>
+                </ul>
+                    <a href="devis.html" class="btn btn-primary">Demander un devis</a>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>Solution entreprise</h3>
+                        <div class="price">Sur mesure</div>
+                        <ul class="pricing-features">
+                            <li>Développement personnalisé</li>
+                            <li>Intégrations multiples</li>
+                            <li>Infrastructure dédiée</li>
+                            <li>Maintenance évolutive</li>
+                            <li>Support prioritaire</li>
+                            <li>Formation continue</li>
+                        </ul>
+                        <a href="devis.html" class="btn btn-outline">Demander un devis</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section fade-in">
+            <div class="container">
+                <h2>Prêt à digitaliser votre transport ?</h2>
+                <p>Contactez-nous pour discuter de vos besoins et obtenir un devis personnalisé</p>
+                <div class="cta-buttons">
+                    <a href="devis.html" class="btn btn-secondary">Demander un devis</a>
+                    <a href="../index.html#footer" class="btn btn-outline">Nous contacter</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="other-services fade-in">
+            <div class="container">
+                <h2>Nos autres services</h2>
+                <p class="other-services-desc">Découvrez l'ensemble de nos solutions pour accompagner votre entreprise.</p>
+                <div class="other-services-grid">
+                    <a href="service-web.html" class="other-service-link"><i class="fas fa-globe"></i><span>Création de sites web</span></a>
+                    <a href="service-mobile.html" class="other-service-link"><i class="fas fa-mobile-alt"></i><span>Applications mobiles</span></a>
+                    <a href="service-digital.html" class="other-service-link"><i class="fas fa-handshake"></i><span>Accompagnement digitalisation</span></a>
+                    <a href="service-automation.html" class="other-service-link"><i class="fas fa-robot"></i><span>IA & automatisation</span></a>
+                    <a href="service-logistics.html" class="other-service-link"><i class="fas fa-boxes"></i><span>Logistique</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo" id="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p id="copyright-footer"></p>
+                <div class="footer-links">
+                    <a href="confidentialite.html">Politique de confidentialité</a>
+                    <a href="conditions.html">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Copyright dynamique
+        const copyright = document.getElementById('copyright-footer');
+        const year = new Date().getFullYear();
+        copyright.innerHTML = `© ${year} SmartShift. Tous droits réservés.`;
+    </script>
+    <script src="/js/script.js"></script>
+</body>
+</html> 

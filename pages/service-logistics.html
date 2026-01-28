@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Logistique SmartShift : gestion logistique, suivi des marchandises, codes-barres & QR, optimisation des flux.">
+    <title>Logistique | SmartShift</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .service-features {
+            background: var(--light);
+            padding: 4rem 0;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(31,120,180,0.15);
+        }
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            color: var(--white);
+            font-size: 2rem;
+        }
+        .process-section {
+            padding: 4rem 0;
+        }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem auto;
+        }
+        .pricing-section {
+            background: var(--light);
+            padding: 4rem 0;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .pricing-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s;
+        }
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+        .pricing-card.featured {
+            border: 3px solid var(--primary);
+            transform: scale(1.05);
+        }
+        .pricing-card.featured::before {
+            content: 'Recommandé';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 1rem 0;
+        }
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        .pricing-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-buttons .btn {
+            min-width: 200px;
+        }
+        @media (max-width: 768px) {
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Accueil SmartShift">
+                <img src="../images/logo.png" alt="SmartShift">
+                <span style="font-size:2rem;font-weight:700;font-family:Poppins,Arial,sans-serif;letter-spacing:1px;text-shadow:0 2px 8px rgba(31,120,180,0.08);line-height:1;margin:0;padding:0;"><span style="color:#155A9E !important;">Smart</span><span style="color:#7FC94C !important;">Shift</span></span>
+            </a>
+            <nav class="navbar" role="navigation" aria-label="Menu principal">
+                <ul class="nav-links">
+                    <li><a href="../index.html#home">Accueil</a></li>
+                    <li><a href="../index.html#services">Services</a></li>
+                    <li><a href="../index.html#about">À propos</a></li>
+                    <li><a href="realisations.html">Réalisations</a></li>
+                    <li><a href="equipe.html">Équipe</a></li>
+                    <li><a href="../index.html#footer">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="devis.html" class="btn btn-primary">Devis gratuit</a>
+                </div>
+            </nav>
+            <div class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+        <section class="hero service-hero fade-in">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="service-icon-large"><i class="fas fa-boxes"></i></span>
+                    <h1>Logistique</h1>
+                    <p class="hero-subtitle">Gestion logistique complète, suivi des marchandises en temps réel, codes-barres et optimisation des flux pour votre chaîne logistique.</p>
+                </div>
+                <div class="hero-image hero-image-placeholder">
+                    <span class="hero-placeholder-icon"><i class="fas fa-boxes"></i></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-detail fade-in">
+            <div class="container">
+                <h2>Nos solutions logistiques</h2>
+                <p style="text-align:center;max-width:800px;margin:0 auto 3rem auto;color:var(--gray);font-size:1.1rem;">
+                    Optimisez votre chaîne logistique avec nos solutions digitales innovantes et performantes.
+                </p>
+                
+                <div class="service-cards-grid">
+                    <div class="service-card-mini">
+                        <i class="fas fa-warehouse fa-2x"></i>
+                        <h3>Gestion d'entrepôt</h3>
+                        <p>Gestion complète des stocks, emplacements, inventaires et flux de marchandises.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-truck fa-2x"></i>
+                        <h3>Suivi des livraisons</h3>
+                        <p>Suivi en temps réel des marchandises, géolocalisation et notifications automatiques.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-barcode fa-2x"></i>
+                        <h3>Codes-barres & QR codes</h3>
+                        <p>Intégration de systèmes de traçabilité, scan et gestion automatisée des produits.</p>
+                    </div>
+                    <div class="service-card-mini">
+                        <i class="fas fa-chart-line fa-2x"></i>
+                        <h3>Analytics & Reporting</h3>
+                        <p>Tableaux de bord personnalisés, analyses de performance et rapports automatisés.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="service-features fade-in">
+            <div class="container">
+                <h2>Fonctionnalités logistiques</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <h3>Gestion des stocks</h3>
+                        <p>Suivi en temps réel des niveaux de stock, alertes automatiques et optimisation des réapprovisionnements</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Géolocalisation</h3>
+                        <p>Suivi GPS des véhicules et marchandises, optimisation des itinéraires et estimation des délais</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-qrcode"></i>
+                        </div>
+                        <h3>Traçabilité</h3>
+                        <p>Codes-barres, QR codes et RFID pour une traçabilité complète de vos produits</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Automatisation</h3>
+                        <p>Automatisation des processus de réception, expédition et gestion des retours</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Applications mobiles</h3>
+                        <p>Apps dédiées pour les opérateurs logistiques, scan mobile et saisie simplifiée</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud & Intégration</h3>
+                        <p>Solution cloud sécurisée, intégration avec vos ERP et outils existants</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-section fade-in">
+            <div class="container">
+                <h2>Notre processus d'implémentation</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Audit logistique</h3>
+                        <p>Analyse de vos processus actuels, identification des points d'amélioration et définition des objectifs</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Conception & Configuration</h3>
+                        <p>Conception de la solution adaptée à vos besoins, configuration des workflows et intégrations</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Déploiement & Formation</h3>
+                        <p>Installation de la solution, formation des équipes et accompagnement au changement</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Suivi & Optimisation</h3>
+                        <p>Suivi des performances, optimisations continues et support technique permanent</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-section fade-in">
+            <div class="container">
+                <h2>Nos offres logistiques</h2>
+                <p style="text-align:center;max-width:800px;margin:0 auto 3rem auto;color:var(--gray);font-size:1.1rem;">
+                    Des solutions adaptées à tous les types d'activités logistiques
+                </p>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Solution de base</h3>
+                        <div class="price">À partir de <br><span>1000€</span></div>
+                        <ul class="pricing-features">
+                            <li>Gestion des stocks</li>
+                            <li>Codes-barres basiques</li>
+                            <li>Interface web</li>
+                            <li>Rapports simples</li>
+                            <li>Support technique</li>
+                            <li>Formation initiale</li>
+                        </ul>
+                        <a href="devis.html" class="btn btn-outline">Demander un devis</a>
+                    </div>
+                    <div class="pricing-card featured">
+                        <h3>Solution complète</h3>
+                        <div class="price">À partir de <br><span>3000€</span></div>
+                        <ul class="pricing-features">
+                            <li>Gestion complète des stocks</li>
+                            <li>Suivi GPS des livraisons</li>
+                            <li>QR codes avancés</li>
+                            <li>Applications mobiles</li>
+                            <li>Analytics avancés</li>
+                            <li>Intégrations multiples</li>
+                            <li>Support 1 an</li>
+                </ul>
+                    <a href="devis.html" class="btn btn-primary">Demander un devis</a>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>Solution entreprise</h3>
+                        <div class="price">Sur mesure</div>
+                        <ul class="pricing-features">
+                            <li>Solution personnalisée</li>
+                            <li>Intégrations complexes</li>
+                            <li>API dédiées</li>
+                            <li>Maintenance évolutive</li>
+                            <li>Support prioritaire</li>
+                            <li>Formation continue</li>
+                        </ul>
+                        <a href="devis.html" class="btn btn-outline">Demander un devis</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section fade-in">
+            <div class="container">
+                <h2>Prêt à optimiser votre logistique ?</h2>
+                <p>Contactez-nous pour analyser vos besoins et proposer une solution logistique adaptée</p>
+                <div class="cta-buttons">
+                    <a href="devis.html" class="btn btn-secondary">Demander un devis</a>
+                    <a href="../index.html#footer" class="btn btn-outline">Nous contacter</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="other-services fade-in">
+            <div class="container">
+                <h2>Nos autres services</h2>
+                <p class="other-services-desc">Découvrez l'ensemble de nos solutions pour accompagner votre entreprise.</p>
+                <div class="other-services-grid">
+                    <a href="service-web.html" class="other-service-link"><i class="fas fa-globe"></i><span>Création de sites web</span></a>
+                    <a href="service-mobile.html" class="other-service-link"><i class="fas fa-mobile-alt"></i><span>Applications mobiles</span></a>
+                    <a href="service-digital.html" class="other-service-link"><i class="fas fa-handshake"></i><span>Accompagnement digitalisation</span></a>
+                    <a href="service-automation.html" class="other-service-link"><i class="fas fa-robot"></i><span>IA & automatisation</span></a>
+                    <a href="service-transport.html" class="other-service-link"><i class="fas fa-truck"></i><span>Transport</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo" id="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p id="copyright-footer"></p>
+                <div class="footer-links">
+                    <a href="confidentialite.html">Politique de confidentialité</a>
+                    <a href="conditions.html">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Copyright dynamique
+        const copyright = document.getElementById('copyright-footer');
+        const year = new Date().getFullYear();
+        copyright.innerHTML = `© ${year} SmartShift. Tous droits réservés.`;
+    </script>
+    <script src="/js/script.js"></script>
+</body>
+</html> 

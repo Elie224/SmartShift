@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Réalisations | SmartShift</title>
+    <meta name="description" content="Réalisations SmartShift : sites web, applications mobiles, digitalisation, IA, logistique et transport.">
+    <meta property="og:title" content="Nos Réalisations – SmartShift">
+    <meta property="og:description" content="Réalisations SmartShift : sites web, applications mobiles, digitalisation, IA, logistique et transport.">
+    <meta property="og:url" content="https://votre-site.com/realisations">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nos Réalisations – SmartShift">
+    <meta name="twitter:description" content="Réalisations SmartShift : sites web, applications mobiles, digitalisation, IA, logistique et transport.">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .realisations-hero { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--white); text-align: center; padding: 8rem 0 4rem; }
+        .realisations-hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; }
+        .realisations-hero p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        .realisations-empty { padding: 6rem 2rem; text-align: center; background: var(--light); }
+        .realisations-empty i { font-size: 4rem; color: var(--primary); margin-bottom: 1.5rem; opacity: 0.6; }
+        .realisations-empty h2 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--dark); }
+        .realisations-empty p { color: var(--gray); max-width: 500px; margin: 0 auto 2rem; font-size: 1.1rem; }
+        .cta-section { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: var(--white); padding: 4rem 0; text-align: center; }
+        .cta-section h2 { color: var(--white); margin-bottom: 1rem; }
+        .cta-section p { font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        @media (max-width: 768px) { .realisations-hero h1 { font-size: 2.2rem; } .cta-buttons { flex-direction: column; align-items: center; } }
+    </style>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Accueil SmartShift">
+                <img src="../images/logo.png" alt="SmartShift">
+                <span style="font-size:2rem;font-weight:700;font-family:Poppins,Arial,sans-serif;letter-spacing:1px;text-shadow:0 2px 8px rgba(31,120,180,0.08);line-height:1;margin:0;padding:0;"><span style="color:#155A9E !important;">Smart</span><span style="color:#7FC94C !important;">Shift</span></span>
+            </a>
+            <nav class="navbar" role="navigation" aria-label="Menu principal">
+                <ul class="nav-links">
+                    <li><a href="../index.html#home">Accueil</a></li>
+                    <li><a href="../index.html#services">Services</a></li>
+                    <li><a href="../index.html#about">À propos</a></li>
+                    <li><a href="realisations.html">Réalisations</a></li>
+                    <li><a href="equipe.html">Équipe</a></li>
+                    <li><a href="../index.html#footer">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="devis.html" class="btn btn-primary">Devis gratuit</a>
+                </div>
+            </nav>
+            <div class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <section class="hero realisations-hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
+                <h1>Nos Réalisations</h1>
+                <p>Retrouvez bientôt ici une sélection de nos projets.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="realisations-empty">
+        <div class="container">
+            <i class="fas fa-rocket" aria-hidden="true"></i>
+            <h2>Projets à venir</h2>
+            <p>Nous mettons à jour cette page avec nos réalisations récentes. En attendant, découvrez nos services ou contactez-nous pour parler de votre projet.</p>
+            <div class="cta-buttons" style="margin-top:1.5rem;">
+                <a href="../index.html#services" class="btn btn-primary">Voir nos services</a>
+                <a href="devis.html" class="btn btn-outline">Demander un devis</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Prêt à démarrer votre projet ?</h2>
+            <p>Contactez-nous pour discuter de vos besoins et obtenir un devis personnalisé.</p>
+            <div class="cta-buttons">
+                <a href="../index.html#footer" class="btn btn-secondary">Nous contacter</a>
+                <a href="devis.html" class="btn btn-outline" style="border-color:rgba(255,255,255,0.8);color:var(--white);">Demander un devis</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" role="contentinfo" id="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p id="copyright-footer"></p>
+                <div class="footer-links">
+                    <a href="confidentialite.html">Politique de confidentialité</a>
+                    <a href="conditions.html">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="/js/script.js"></script>
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-in-out', once: true, mirror: false, offset: 100 });
+        var c = document.getElementById('copyright-footer');
+        if (c) c.innerHTML = '© ' + new Date().getFullYear() + ' SmartShift. Tous droits réservés.';
+    </script>
+</body>
+</html>

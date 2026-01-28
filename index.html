@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SmartShift : création de sites web, applications mobiles, accompagnement à la digitalisation, IA et automatisation, logistique et transport pour entreprises">
+    <meta name="keywords" content="SmartShift, site web, application mobile, digitalisation, IA, automatisation, logistique, transport, entreprise, startup, France">
+    <meta name="robots" content="index, follow">
+    <title>SmartShift | Sites web, apps mobiles, IA, logistique & transport</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="/css/styles.css">
+    <!-- Open Graph -->
+    <meta property="og:title" content="SmartShift – Sites web, apps mobiles, digitalisation, IA, logistique & transport">
+    <meta property="og:description" content="Votre partenaire : sites web, applications mobiles, accompagnement digitalisation, IA & automatisation, logistique et transport en France.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://votre-site.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SmartShift – Sites web, apps mobiles, digitalisation, IA, logistique & transport">
+    <meta name="twitter:description" content="Votre partenaire : sites web, applications mobiles, accompagnement digitalisation, IA & automatisation, logistique et transport en France.">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <!-- Barre de navigation -->
+    <header class="header" role="banner">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Accueil SmartShift">
+                <img src="images/logo.png" alt="SmartShift">
+                <span style="font-size:2rem;font-weight:700;font-family:Poppins,Arial,sans-serif;letter-spacing:1px;text-shadow:0 2px 8px rgba(31,120,180,0.08);line-height:1;margin:0;padding:0;">
+                  <span style="color:#155A9E !important;">Smart</span><span style="color:#7FC94C !important;">Shift</span>
+                </span>
+            </a>
+            <nav class="navbar" role="navigation" aria-label="Menu principal">
+                <ul class="nav-links">
+                    <li><a href="#home" aria-label="Accueil">Accueil</a></li>
+                    <li><a href="#services" aria-label="Services">Services</a></li>
+                    <li><a href="#about" aria-label="À propos">À propos</a></li>
+                    <li><a href="pages/realisations.html" aria-label="Réalisations">Réalisations</a></li>
+                    <li><a href="pages/equipe.html" aria-label="Équipe">Équipe</a></li>
+                    <li><a href="#footer" aria-label="Contact">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="pages/devis.html" class="btn btn-primary" aria-label="Demander un devis gratuit">Devis gratuit</a>
+                </div>
+            </nav>
+            <div class="menu-toggle" aria-label="Ouvrir ou fermer le menu" tabindex="0" role="button">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Loader -->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Section Hero -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+                <h1>Transformez votre entreprise avec SmartShift</h1>
+                <p class="hero-subtitle">Sites web, applications mobiles, accompagnement à la digitalisation, intégration de l'IA pour automatiser vos tâches, logistique et transport</p>
+                <div class="hero-buttons">
+                    <a href="pages/devis.html" class="btn btn-primary">Demandez un devis</a>
+                    <a href="#services" class="btn btn-secondary">Nos services <i class="fas fa-arrow-down"></i></a>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                <img src="images/image%20acceuille.png" alt="SmartShift – Transformez votre entreprise">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Services -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up" data-aos-duration="800">
+                <h2>Nos Services</h2>
+                <p>Sites web, applications mobiles, digitalisation, IA, logistique et transport pour votre entreprise</p>
+            </div>
+            
+            <div class="services-grid" id="services-container">
+                <!-- Service 1 -->
+                <div class="service-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
+                    <img src="images/sites.jpeg" alt="Création de sites web">
+                    <h3>Création de sites web</h3>
+                    <ul>
+                        <li>Sites vitrines et institutionnels</li>
+                        <li>E-commerce</li>
+                        <li>Applications web sur mesure</li>
+                        <li>Optimisation SEO</li>
+                    </ul>
+                    <a href="pages/service-web.html" class="btn btn-outline">En savoir plus</a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
+                    <img src="images/mobiles.jpeg" alt="Applications mobiles">
+                    <h3>Applications mobiles</h3>
+                    <ul>
+                        <li>Apps iOS et Android</li>
+                        <li>Applications métier</li>
+                        <li>Suivi et géolocalisation</li>
+                        <li>Interfaces intuitives</li>
+                    </ul>
+                    <a href="pages/service-mobile.html" class="btn btn-outline">En savoir plus</a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
+                    <img src="images/digital.jpeg" alt="Accompagnement à la digitalisation">
+                    <h3>Accompagnement à la digitalisation</h3>
+                    <ul>
+                        <li>Stratégie digitale</li>
+                        <li>Formation des équipes</li>
+                        <li>Optimisation des processus</li>
+                        <li>Conseil et suivi</li>
+                    </ul>
+                    <a href="pages/service-digital.html" class="btn btn-outline">En savoir plus</a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
+                    <h3>IA & automatisation des tâches</h3>
+                    <ul>
+                        <li>Intégration de l'IA en entreprise</li>
+                        <li>Automatisation de processus</li>
+                        <li>Chatbots et assistants virtuels</li>
+                        <li>Connexion et orchestration d'outils</li>
+                    </ul>
+                    <a href="pages/service-automation.html" class="btn btn-outline">En savoir plus</a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="500">
+                    <h3>Logistique</h3>
+                    <ul>
+                        <li>Gestion logistique</li>
+                        <li>Suivi des marchandises</li>
+                        <li>Codes-barres & QR codes</li>
+                        <li>Optimisation des flux</li>
+                    </ul>
+                    <a href="pages/service-logistics.html" class="btn btn-outline">En savoir plus</a>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="600">
+                    <h3>Transport</h3>
+                    <ul>
+                        <li>Applications de transport</li>
+                        <li>Gestion de flotte</li>
+                        <li>Suivi en temps réel</li>
+                        <li>Optimisation des trajets</li>
+                    </ul>
+                    <a href="pages/service-transport.html" class="btn btn-outline">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+                <h2>Qui sommes-nous ?</h2>
+                <p>SmartShift est votre partenaire pour la création de sites web, d'applications mobiles, l'accompagnement à la digitalisation des entreprises, l'intégration de l'IA pour automatiser vos tâches, ainsi que la logistique et le transport. Notre objectif : satisfaire le plus de clients et réaliser le plus de projets possibles, avec des solutions sur mesure.</p>
+                
+                <div class="about-stats" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
+                    <div class="stat-item" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="600">
+                        <span class="stat-number" data-count="500">0</span>+
+                        <span class="stat-text">Objectif : clients satisfaits</span>
+                    </div>
+                    <div class="stat-item" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="700">
+                        <span class="stat-number" data-count="1000">0</span>+
+                        <span class="stat-text">Objectif : projets réalisés</span>
+                    </div>
+                    <div class="stat-item" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="800">
+                        <span class="stat-number" data-count="20">0</span>+
+                        <span class="stat-text">Experts à votre service</span>
+                    </div>
+                </div>
+                
+                <a href="#footer" class="btn btn-primary">Contactez-nous</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Valeurs -->
+    <section id="valeurs" class="valeurs">
+        <div class="container">
+            <div class="valeurs-header" data-aos="fade-up" data-aos-duration="800">
+                <span class="valeurs-label">Ce qui nous anime</span>
+                <h2 class="valeurs-title">Nos valeurs</h2>
+                <p class="valeurs-desc">Les principes qui guident notre accompagnement et notre relation avec vous.</p>
+            </div>
+            <div class="values-grid">
+                <article class="value-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
+                    <div class="value-card-inner">
+                        <span class="value-num" aria-hidden="true">01</span>
+                        <div class="value-icon-wrap">
+                            <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="value-title">Innovation</h3>
+                        <p class="value-text">Technologies actuelles — IA, digitalisation, applications — pour des solutions performantes et évolutives.</p>
+                    </div>
+                </article>
+                <article class="value-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
+                    <div class="value-card-inner">
+                        <span class="value-num" aria-hidden="true">02</span>
+                        <div class="value-icon-wrap">
+                            <i class="fas fa-gem" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="value-title">Qualité</h3>
+                        <p class="value-text">Livrables conçus avec soin : sites, apps, accompagnement et maintenance pour des projets fiables.</p>
+                    </div>
+                </article>
+                <article class="value-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
+                    <div class="value-card-inner">
+                        <span class="value-num" aria-hidden="true">03</span>
+                        <div class="value-icon-wrap">
+                            <i class="fas fa-handshake" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="value-title">Proximité</h3>
+                        <p class="value-text">À l’écoute et à vos côtés de la conception à la livraison et au suivi.</p>
+                    </div>
+                </article>
+                <article class="value-card" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
+                    <div class="value-card-inner">
+                        <span class="value-num" aria-hidden="true">04</span>
+                        <div class="value-icon-wrap">
+                            <i class="fas fa-bullseye" aria-hidden="true"></i>
+                        </div>
+                        <h3 class="value-title">Engagement</h3>
+                        <p class="value-text">Satisfaire le plus de clients et réaliser le plus de projets possibles, dans la durée.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section FAQ -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Foire aux questions</h2>
+                <p>Vous avez une question ? Consultez notre FAQ ou contactez-nous directement.</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">Quels services proposez-vous ?</button>
+                    <div class="faq-answer">Nous proposons la création de sites web, d'applications mobiles, l'accompagnement à la digitalisation des entreprises, l'intégration de l'IA pour automatiser vos tâches, ainsi que des solutions logistiques et de transport.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">Comment obtenir un devis personnalisé ?</button>
+                    <div class="faq-answer">Cliquez sur « Devis gratuit » en haut de la page ou rendez-vous sur la page Devis. Nous vous répondrons rapidement.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">Proposez-vous un accompagnement après livraison ?</button>
+                    <div class="faq-answer">Oui, nous assurons un suivi, la maintenance et la formation pour garantir la réussite de votre projet.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">Vos solutions sont-elles adaptées aux PME ?</button>
+                    <div class="faq-answer">Absolument. Nous adaptons nos offres à la taille et aux besoins de chaque entreprise, de la startup à la grande société.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Suppression complète de la section contact -->
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo" id="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p id="copyright-footer"></p>
+                <div class="footer-links">
+                    <a href="pages/confidentialite.html">Politique de confidentialité</a>
+                    <a href="pages/conditions.html">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton retour en haut -->
+    <a href="#home" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Chatbot -->
+    <div class="chatbot-toggle" aria-label="Ouvrir le chatbot" tabindex="0" role="button">
+        <i class="fas fa-comment-dots" aria-hidden="true"></i>
+    </div>
+    
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            <h4>Assistant SmartShift</h4>
+            <button class="chatbot-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="chatbot-messages">
+            <div class="chatbot-message bot">
+                <p>Bonjour ! Je suis l'assistant SmartShift. Je peux vous parler de nos <b>services</b> (sites web, apps mobiles, digitalisation, IA, logistique, transport), de nos <b>valeurs</b>, ou vous indiquer comment nous <b>contacter</b> ou demander un <b>devis</b>. Par quoi souhaitez-vous commencer ?</p>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" placeholder="Posez votre question..." autocomplete="off">
+            <button><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="/js/script.js"></script>
+    <script>
+        // Initialiser AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false,
+            offset: 100
+        });
+        // Copyright dynamique
+        const copyright = document.getElementById('copyright-footer');
+        const year = new Date().getFullYear();
+        copyright.innerHTML = `© ${year} SmartShift. Tous droits réservés.`;
+
+        // Services are now static with AOS animations
+        // No need for dynamic loading since backend was removed
+    </script>
+
+    <style>
+        /* Styles pour les animations AOS personnalisées */
+        [data-aos] {
+            pointer-events: none;
+        }
+        
+        [data-aos].aos-animate {
+            pointer-events: auto;
+        }
+        
+        /* Amélioration des animations de service */
+        .service-card[data-aos] {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card[data-aos]:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.15);
+        }
+    </style>
+</body>
+</html>

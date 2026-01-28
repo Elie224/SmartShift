@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Demandez un devis SmartShift : sites web, applications mobiles, digitalisation, IA & automatisation, logistique, transport.">
+    <title>Demande de devis | SmartShift</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta property="og:title" content="Demande de devis – SmartShift">
+    <meta property="og:description" content="Obtenez un devis personnalisé pour votre projet (web, mobile, digitalisation, IA, logistique, transport) en France.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://votre-site.com/devis.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Demande de devis – SmartShift">
+    <meta name="twitter:description" content="Obtenez un devis personnalisé pour votre projet (web, mobile, digitalisation, IA, logistique, transport) en France.">
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Accueil SmartShift">
+                <img src="../images/logo.png" alt="SmartShift">
+                <span style="font-size:2rem;font-weight:700;font-family:Poppins,Arial,sans-serif;letter-spacing:1px;text-shadow:0 2px 8px rgba(31,120,180,0.08);line-height:1;margin:0;padding:0;"><span style="color:#155A9E !important;">Smart</span><span style="color:#7FC94C !important;">Shift</span></span>
+            </a>
+            <nav class="navbar" role="navigation" aria-label="Menu principal">
+                <ul class="nav-links">
+                    <li><a href="../index.html#home" aria-label="Accueil">Accueil</a></li>
+                    <li><a href="../index.html#services" aria-label="Services">Services</a></li>
+                    <li><a href="../index.html#about" aria-label="À propos">À propos</a></li>
+                    <li><a href="realisations.html" aria-label="Réalisations">Réalisations</a></li>
+                    <li><a href="equipe.html" aria-label="Équipe">Équipe</a></li>
+                    <li><a href="../index.html#footer" aria-label="Contact">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="devis.html" class="btn btn-primary" aria-label="Demander un devis gratuit">Devis gratuit</a>
+                </div>
+            </nav>
+            <div class="menu-toggle" aria-label="Ouvrir ou fermer le menu" tabindex="0" role="button">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </div>
+        </div>
+    </header>
+    <main id="main-content" role="main">
+        <section class="hero" style="padding:3rem 0 2rem;">
+            <div class="container">
+                <div class="hero-content" style="max-width:600px;margin:auto;text-align:center;">
+                    <h1>Demandez votre devis personnalisé</h1>
+                    <p class="hero-subtitle">Remplissez le formulaire ci-dessous pour recevoir une estimation rapide et gratuite pour le service de votre choix.</p>
+                </div>
+            </div>
+        </section>
+        <section class="contact" style="padding-top:0;">
+            <div class="container" style="justify-content:center;">
+                <div class="contact-form" style="max-width:600px;margin:auto;">
+                    <form id="devisForm" autocomplete="on" aria-label="Formulaire de demande de devis">
+                        <div class="form-group">
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" placeholder="Votre email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Votre téléphone">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service souhaité *</label>
+                            <select id="service" name="service" required>
+                                <option value="" disabled selected>Choisissez un service</option>
+                                <option value="Creation de sites web">Création de sites web</option>
+                                <option value="Applications mobiles">Applications mobiles</option>
+                                <option value="Accompagnement digitalisation">Accompagnement digitalisation</option>
+                                <option value="IA et automatisation">IA & automatisation des tâches</option>
+                                <option value="Logistique">Logistique</option>
+                                <option value="Transport">Transport</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Décrivez votre projet *</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Décrivez votre projet..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%;">Envoyer la demande</button>
+                        <div id="devis-success" style="display:none;margin-top:1.5rem;color:var(--success,green);font-weight:bold;text-align:center;">Merci, votre demande a bien été envoyée ! Nous vous contacterons rapidement.</div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer" role="contentinfo" id="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p id="copyright-footer"></p>
+                <div class="footer-links">
+                    <a href="confidentialite.html">Politique de confidentialité</a>
+                    <a href="conditions.html">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/js/script.js"></script>
+    <script>
+        // Copyright dynamique
+        const copyright = document.getElementById('copyright-footer');
+        const year = new Date().getFullYear();
+        copyright.innerHTML = `© ${year} SmartShift. Tous droits réservés.`;
+        
+        // Formulaire devis sans backend
+        const devisForm = document.getElementById('devisForm');
+        const devisSuccess = document.getElementById('devis-success');
+        
+        if (devisForm) {
+            devisForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(devisForm);
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const phone = formData.get('phone');
+                const service = formData.get('service');
+                const message = formData.get('message');
+                
+                // Créer le message pour WhatsApp
+                const whatsappMessage = `Bonjour, je souhaite un devis pour le service : ${service}
+
+Nom : ${name}
+Email : ${email}
+Téléphone : ${phone}
+
+Description du projet :
+${message}
+
+Merci !`;
+                
+                // Créer le message pour email
+                const emailSubject = `Demande de devis - ${service}`;
+                const emailBody = `Bonjour,
+
+Je souhaite obtenir un devis pour le service : ${service}
+
+Informations :
+- Nom : ${name}
+- Email : ${email}
+- Téléphone : ${phone}
+
+Description du projet :
+${message}
+
+Cordialement,
+${name}`;
+                
+                // Encoder les messages pour les liens
+                const encodedWhatsapp = encodeURIComponent(whatsappMessage);
+                const encodedEmailSubject = encodeURIComponent(emailSubject);
+                const encodedEmailBody = encodeURIComponent(emailBody);
+                
+                // Créer les liens
+                const whatsappLink = `https://wa.me/33689306432?text=${encodedWhatsapp}`;
+                const emailLink = `mailto:kouroumaelisee@gmail.com?subject=${encodedEmailSubject}&body=${encodedEmailBody}`;
+                
+                // Afficher les options
+                const choice = confirm(`Votre demande de devis a été préparée ! 
+
+Choisissez comment l'envoyer :
+- OK : Envoyer par WhatsApp
+- Annuler : Envoyer par email
+
+Ou contactez-nous directement au +33 6 89 30 64 32`);
+                
+                if (choice) {
+                    // Ouvrir WhatsApp
+                    window.open(whatsappLink, '_blank');
+                } else {
+                    // Ouvrir email
+                    window.open(emailLink, '_blank');
+                }
+                
+                // Afficher le message de succès
+                devisSuccess.style.display = 'block';
+                devisForm.reset();
+                
+                setTimeout(() => {
+                    devisSuccess.style.display = 'none';
+                }, 8000);
+            });
+        }
+    </script>
+</body>
+</html> 

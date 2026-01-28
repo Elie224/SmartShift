@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez l'équipe SmartShift : direction, développement web & mobile, IA & automatisation, design, marketing. Une structure hiérarchique claire et scalable.">
+    <title>Notre équipe | SmartShift</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .team-hero { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: var(--white); text-align: center; padding: 5rem 0 4rem; }
+        .team-hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.75rem; }
+        .team-hero .lead { font-size: 1.15rem; opacity: 0.95; max-width: 640px; margin: 0 auto; line-height: 1.6; }
+
+        .org-section { padding: 4rem 0; background: var(--white); }
+        .org-section .section-head { text-align: center; margin-bottom: 3rem; }
+        .org-section .section-head h2 { font-size: 1.75rem; color: var(--dark); margin-bottom: 0.5rem; }
+        .org-section .section-head p { color: var(--gray); font-size: 1.05rem; max-width: 560px; margin: 0 auto; }
+
+        .org-chart { display: flex; flex-direction: column; align-items: center; gap: 0; max-width: 720px; margin: 0 auto 3rem; }
+        .org-level { display: flex; justify-content: center; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap; }
+        .org-node { background: var(--white); border: 2px solid var(--primary); color: var(--primary); font-weight: 700; padding: 0.75rem 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow); white-space: nowrap; }
+        .org-node.ceo { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: var(--white); font-size: 1.1rem; padding: 1rem 2rem; }
+        .org-node.team { background: var(--light); border-color: var(--gray-light); color: var(--dark); font-weight: 600; font-size: 0.95rem; }
+        .org-connector { width: 2px; background: var(--gray-light); min-height: 24px; }
+        .org-level-1 { flex-wrap: wrap; }
+        .org-level-2 { margin-top: 0.5rem; }
+        .org-cto-teams { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; padding-top: 0.5rem; border-top: 1px dashed var(--gray-light); margin-top: 0.25rem; }
+        .org-cto-label { font-size: 0.85rem; color: var(--gray); }
+        @media (max-width: 768px) { .org-chart { gap: 1rem; } .org-level { flex-direction: column; align-items: center; } }
+
+        .direction-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1000px; margin: 0 auto 4rem; }
+        .dir-card { background: var(--white); border-radius: var(--radius-xl); box-shadow: var(--shadow); padding: 2rem; text-align: center; border-top: 4px solid var(--primary); transition: transform 0.2s, box-shadow 0.2s; }
+        .dir-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .dir-card.ceo { border-top-color: #eab308; }
+        .dir-icon { width: 64px; height: 64px; margin: 0 auto 1.25rem; background: var(--light); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+        .dir-card.ceo .dir-icon { background: rgba(234,179,8,0.15); color: #b45309; }
+        .dir-card h3 { font-size: 1.2rem; color: var(--dark); margin-bottom: 0.35rem; }
+        .dir-card .role { color: var(--primary); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.75rem; }
+        .dir-card.ceo .role { color: #b45309; }
+        .dir-card p { color: var(--gray); font-size: 0.95rem; line-height: 1.55; margin: 0; }
+        .dir-card ul { list-style: none; padding: 0; margin: 1rem 0 0; text-align: left; }
+        .dir-card li { font-size: 0.9rem; color: var(--gray); padding: 0.25rem 0; padding-left: 1.25rem; position: relative; }
+        .dir-card li::before { content: '•'; color: var(--primary); position: absolute; left: 0; font-weight: bold; }
+        .dir-socials { display: flex; justify-content: center; gap: 0.75rem; margin-top: 1.25rem; }
+        .dir-socials a { width: 38px; height: 38px; border-radius: 50%; background: var(--light); color: var(--gray); display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; }
+        .dir-socials a:hover { background: var(--primary); color: var(--white); }
+        @media (max-width: 900px) { .direction-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; } }
+
+        .poles-section { padding: 4rem 0; background: var(--light); }
+        .poles-section .section-head { text-align: center; margin-bottom: 3rem; }
+        .poles-section .section-head h2 { font-size: 1.75rem; color: var(--dark); margin-bottom: 0.5rem; }
+        .poles-section .section-head p { color: var(--gray); max-width: 560px; margin: 0 auto; }
+
+        .pole { background: var(--white); border-radius: var(--radius-xl); box-shadow: var(--shadow); padding: 2rem 2.5rem; margin-bottom: 1.5rem; max-width: 800px; margin-left: auto; margin-right: auto; transition: box-shadow 0.2s; }
+        .pole:hover { box-shadow: var(--shadow-md); }
+        .pole-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+        .pole-icon { width: 52px; height: 52px; border-radius: var(--radius); background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; flex-shrink: 0; }
+        .pole-title { font-size: 1.25rem; font-weight: 700; color: var(--dark); }
+        .pole-count { font-size: 0.9rem; color: var(--gray); font-weight: 400; }
+        .pole-desc { color: var(--gray); font-size: 0.98rem; line-height: 1.55; margin-bottom: 1.25rem; }
+        .pole-roles { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.5rem 1.5rem; }
+        .pole-role { font-size: 0.9rem; color: var(--dark); padding-left: 1.25rem; position: relative; }
+        .pole-role::before { content: '▸'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+        @media (max-width: 600px) { .pole-roles { grid-template-columns: 1fr; } }
+
+        .vision-cta { padding: 4rem 0; text-align: center; background: var(--white); }
+        .vision-cta h2 { font-size: 1.5rem; color: var(--dark); margin-bottom: 1rem; }
+        .vision-cta p { color: var(--gray); max-width: 600px; margin: 0 auto 1.5rem; line-height: 1.6; }
+
+        @media (max-width: 768px) {
+            .team-hero { padding: 3.5rem 0 3rem; }
+            .team-hero h1 { font-size: 1.85rem; }
+            .team-hero .lead { font-size: 1rem; }
+            .org-section, .poles-section { padding: 3rem 0; }
+            .pole { padding: 1.5rem 1.25rem; margin-bottom: 1rem; }
+            .pole-header { flex-wrap: wrap; }
+            .vision-cta { padding: 3rem 0; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header" role="banner">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Accueil SmartShift">
+                <img src="../images/logo.png" alt="SmartShift">
+                <span style="font-size:2rem;font-weight:700;font-family:Poppins,Arial,sans-serif;letter-spacing:1px;text-shadow:0 2px 8px rgba(31,120,180,0.08);line-height:1;margin:0;padding:0;"><span style="color:#155A9E !important;">Smart</span><span style="color:#7FC94C !important;">Shift</span></span>
+            </a>
+            <nav class="navbar" role="navigation" aria-label="Menu principal">
+                <ul class="nav-links">
+                    <li><a href="../index.html#home">Accueil</a></li>
+                    <li><a href="../index.html#services">Services</a></li>
+                    <li><a href="../index.html#about">À propos</a></li>
+                    <li><a href="realisations.html">Réalisations</a></li>
+                    <li><a href="equipe.html">Équipe</a></li>
+                    <li><a href="../index.html#footer">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <a href="devis.html" class="btn btn-primary">Devis gratuit</a>
+                </div>
+            </nav>
+            <div class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+        <section class="team-hero">
+            <div class="container">
+                <h1>Notre équipe</h1>
+                <p class="lead">Environ 20 experts structurés en hiérarchie claire : direction, développement web & mobile, IA & automatisation, design, marketing & support. Qualité, spécialisation et scalability.</p>
+            </div>
+        </section>
+
+        <section class="org-section" id="organigramme">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Organigramme</h2>
+                    <p>Structure de l'équipe SmartShift : direction générale et pôles techniques.</p>
+                </div>
+                <div class="org-chart">
+                    <div class="org-node ceo">CEO – Directeur général</div>
+                    <div class="org-connector"></div>
+                    <div class="org-level org-level-1">
+                        <div class="org-node">CTO</div>
+                        <div class="org-node">Chef de projet digital</div>
+                        <div class="org-node">Design & UX (2)</div>
+                        <div class="org-node">Marketing & Support (2)</div>
+                    </div>
+                    <div class="org-connector"></div>
+                    <div class="org-cto-teams">
+                        <span class="org-cto-label">Sous la CTO · Équipes techniques</span>
+                        <div class="org-level org-level-2">
+                            <div class="org-node team">Web (5)</div>
+                            <div class="org-node team">Mobile (4)</div>
+                            <div class="org-node team">IA & Auto (4)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="org-section" id="direction">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Direction & Management</h2>
+                    <p>Vision stratégique, technique et gestion de projet.</p>
+                </div>
+                <div class="direction-grid">
+                    <div class="dir-card ceo">
+                        <div class="dir-icon"><i class="fas fa-crown"></i></div>
+                        <h3>Elisée Kourouma</h3>
+                        <span class="role">CEO & Fondateur</span>
+                        <p>Pilote la vision stratégique, les décisions clés et les partenariats. Expert en IA et transformation numérique.</p>
+                        <ul>
+                            <li>Vision stratégique</li>
+                            <li>Partenariats & supervision</li>
+                            <li>IA & innovation</li>
+                        </ul>
+                        <div class="dir-socials">
+                            <a href="https://www.linkedin.com/in/nema-elis%C3%A9e-kourouma-b5a558242" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.facebook.com/share/18wUY3nLes/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://twitter.com/kouroumaelisee" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/excellencekourouma" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="dir-card">
+                        <div class="dir-icon"><i class="fas fa-code-branch"></i></div>
+                        <h3>CTO – Directeur technique</h3>
+                        <span class="role">Architecture & technologies</span>
+                        <p>Encadre les équipes techniques, définit l'architecture et les choix technologiques (web, mobile, IA).</p>
+                        <ul>
+                            <li>Architecture technique</li>
+                            <li>Supervision Web, Mobile, IA</li>
+                            <li>Qualité & bonnes pratiques</li>
+                        </ul>
+                    </div>
+                    <div class="dir-card">
+                        <div class="dir-icon"><i class="fas fa-tasks"></i></div>
+                        <h3>Chef de projet digital</h3>
+                        <span class="role">Product Manager</span>
+                        <p>Gestion des projets clients, planning, livrables et interface entre clients et équipes techniques.</p>
+                        <ul>
+                            <li>Gestion de projets</li>
+                            <li>Planning & livrables</li>
+                            <li>Relation client ↔ équipes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="poles-section" id="poles">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Pôles & équipes</h2>
+                    <p>Spécialisation par domaine pour la qualité et la rapidité d'exécution.</p>
+                </div>
+
+                <div class="pole">
+                    <div class="pole-header">
+                        <div class="pole-icon"><i class="fas fa-laptop-code"></i></div>
+                        <div>
+                            <span class="pole-title">Développement Web</span>
+                            <span class="pole-count"> · 5 personnes</span>
+                        </div>
+                    </div>
+                    <p class="pole-desc">Sites vitrines, e‑commerce, applications web sur mesure. Architecture, frontend, backend, APIs et bases de données.</p>
+                    <div class="pole-roles">
+                        <span class="pole-role">Lead développeur web</span>
+                        <span class="pole-role">Développeurs frontend (2)</span>
+                        <span class="pole-role">Développeurs backend (2)</span>
+                    </div>
+                </div>
+
+                <div class="pole">
+                    <div class="pole-header">
+                        <div class="pole-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <div>
+                            <span class="pole-title">Applications mobiles</span>
+                            <span class="pole-count"> · 4 personnes</span>
+                        </div>
+                    </div>
+                    <p class="pole-desc">Apps iOS & Android, applications métier, géolocalisation, suivi en temps réel. Qualité et tests.</p>
+                    <div class="pole-roles">
+                        <span class="pole-role">Lead développeur mobile</span>
+                        <span class="pole-role">Développeurs mobile (2)</span>
+                        <span class="pole-role">QA / Testeur mobile</span>
+                    </div>
+                </div>
+
+                <div class="pole">
+                    <div class="pole-header">
+                        <div class="pole-icon"><i class="fas fa-robot"></i></div>
+                        <div>
+                            <span class="pole-title">IA & Automatisation</span>
+                            <span class="pole-count"> · 4 personnes</span>
+                        </div>
+                    </div>
+                    <p class="pole-desc">Intégration IA en entreprise, NLP, chatbots, automatisation de processus, RPA et orchestration d'outils.</p>
+                    <div class="pole-roles">
+                        <span class="pole-role">Lead IA / ML Engineer</span>
+                        <span class="pole-role">Ingénieurs IA / Data Scientists (2)</span>
+                        <span class="pole-role">Développeur automatisation / RPA</span>
+                    </div>
+                </div>
+
+                <div class="pole">
+                    <div class="pole-header">
+                        <div class="pole-icon"><i class="fas fa-palette"></i></div>
+                        <div>
+                            <span class="pole-title">Design & UX</span>
+                            <span class="pole-count"> · 2 personnes</span>
+                        </div>
+                    </div>
+                    <p class="pole-desc">Identité visuelle, interfaces utilisateur, expérience produit. Visuels, illustrations et cohérence SmartShift.</p>
+                    <div class="pole-roles">
+                        <span class="pole-role">UI/UX Designer senior</span>
+                        <span class="pole-role">Graphic Designer / Assistant design</span>
+                    </div>
+                </div>
+
+                <div class="pole">
+                    <div class="pole-header">
+                        <div class="pole-icon"><i class="fas fa-bullhorn"></i></div>
+                        <div>
+                            <span class="pole-title">Marketing, commercial & support</span>
+                            <span class="pole-count"> · 2 personnes</span>
+                        </div>
+                    </div>
+                    <p class="pole-desc">Acquisition clients, branding, réseaux sociaux. Relation client, support et remontée des retours utilisateurs.</p>
+                    <div class="pole-roles">
+                        <span class="pole-role">Responsable marketing digital</span>
+                        <span class="pole-role">Chargé relation client / Support</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vision-cta">
+            <div class="container">
+                <h2>Notre vision</h2>
+                <p>Une équipe structurée, scalable et spécialisée pour vous accompagner sur le web, le mobile, l'IA, la digitalisation, la logistique et le transport. Qualité, délais et relation client au cœur de notre organisation.</p>
+                <a href="devis.html" class="btn btn-primary">Discuter de votre projet</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo" id="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p id="copyright-footer"></p>
+                <div class="footer-links">
+                    <a href="confidentialite.html">Politique de confidentialité</a>
+                    <a href="conditions.html">Conditions d'utilisation</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const c = document.getElementById('copyright-footer');
+        if (c) c.textContent = '© ' + new Date().getFullYear() + ' SmartShift. Tous droits réservés.';
+    </script>
+    <script src="/js/script.js"></script>
+</body>
+</html>

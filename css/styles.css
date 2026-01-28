@@ -244,10 +244,6 @@ section {
     width: 100%;
 }
 
-.nav-buttons {
-    margin-left: 2rem;
-}
-
 .menu-toggle {
     display: none;
     font-size: 1.35rem;
@@ -2134,18 +2130,6 @@ section {
         display: block;
         min-height: 44px;
         align-items: center;
-    }
-    
-    .nav-buttons {
-        margin-top: 1rem;
-        width: 100%;
-        margin-left: 0;
-    }
-    
-    .nav-buttons .btn {
-        width: 100%;
-        justify-content: center;
-        min-height: 44px;
     }
     
     .hero {

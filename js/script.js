@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Menu mobile : overlay = .navbar (contient nav-links + nav-buttons)
+    // Menu mobile : overlay = .navbar (contient nav-links)
     const menuToggle = document.querySelector('.menu-toggle');
     const navbar = document.querySelector('.navbar');
     const body = document.body;
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
             menuToggle.innerHTML = isMenuOpen() ? '<i class="fas fa-times" aria-hidden="true"></i>' : '<i class="fas fa-bars" aria-hidden="true"></i>';
         });
 
-        document.querySelectorAll('.nav-links a, .nav-buttons a').forEach(function(link) {
+        document.querySelectorAll('.nav-links a').forEach(function(link) {
             link.addEventListener('click', closeMenu);
         });
 

@@ -1,4 +1,4 @@
-# GitHub + Vercel – SmartShift
+# GitHub + Netlify – SmartShift
 
 ## 1. Créer le dépôt sur GitHub
 
@@ -54,22 +54,23 @@ git push -u origin main
 
 ---
 
-## 3. Déployer sur Vercel
+## 3. Déployer sur Netlify
 
-1. Va sur [https://vercel.com](https://vercel.com) et connecte-toi (avec GitHub).
-2. **Add New…** → **Project**.
-3. Importe le dépôt **Elie224/SmartShift**.
-4. Configuration :
-   - **Framework Preset** : Other (ou laisse détecter).
-   - **Root Directory** : `./` (racine).
-   - **Build Command** : laisse vide ou `echo "ok"`.
-   - **Output Directory** : `.` (racine).
-5. **Deploy**. Vercel te donnera une URL du type `https://smartshift-xxx.vercel.app`.
+1. Va sur [https://www.netlify.com](https://www.netlify.com) et connecte-toi (avec GitHub).
+2. **Add new site** → **Import an existing project**.
+3. Choisis **GitHub** et autorise Netlify si besoin, puis sélectionne le dépôt **Elie224/SmartShift**.
+4. Configuration du build : le fichier **`netlify.toml`** à la racine définit déjà `publish = "."` et `command = ""`. Tu peux laisser les champs par défaut, ou vérifier :
+   - **Branch to deploy** : `main`.
+   - **Build command** : vide (site statique).
+   - **Publish directory** : `.` (racine du projet).
+5. **Deploy site**. Netlify te donnera une URL du type `https://xxx.netlify.app`.
 
 ---
+
+**Admin** : Accessible à `/pages/admin.html` (ex. `https://ton-site.netlify.app/pages/admin.html`). Identifiants configurables dans `pages/admin.html` (`ADMIN_EMAIL`, `ADMIN_PASSWORD`).
 
 ## Dépannage
 
 - **`could not lock config file ... File exists`** → Voir **[GIT-FIX.md](GIT-FIX.md)** : fermer Cursor, supprimer tout le dossier `.git`, rouvrir un terminal hors Cursor, refaire `git init` puis les commandes.
 - **Erreur d’auth au push** : connecte-toi à GitHub (navigateur), ou utilise un [Personal Access Token](https://github.com/settings/tokens) comme mot de passe.
-- **404 sur /css, /js, /images** : vérifie que **Output Directory** (Vercel) = `.` et que le site est servi à la racine.
+- **404 sur /css, /js, /images** : vérifie que **Publish directory** (Netlify) = `.` et que le site est servi à la racine.

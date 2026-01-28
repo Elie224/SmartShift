@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Administration | SmartShift</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .admin-hero { background: var(--gradient-brand); color: var(--white); text-align: center; padding: 5rem 0 3rem; }
+        .admin-hero h1 { font-size: 1.85rem; margin-bottom: 0.5rem; }
+        .admin-hero .lead { opacity: 0.95; font-size: 1rem; }
+
+        .admin-wrap { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+        .admin-login { max-width: 380px; margin: 4rem auto; padding: 2.5rem; background: var(--white); border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); border: 1px solid var(--gray-light); }
+        .admin-login h2 { font-size: 1.35rem; color: var(--dark); margin-bottom: 1.5rem; text-align: center; }
+        .admin-login .form-group { margin-bottom: 1.25rem; }
+        .admin-login label { display: block; font-weight: 600; color: var(--dark); margin-bottom: 0.5rem; font-size: 0.95rem; }
+        .admin-login input[type="password"],
+        .admin-login input[type="email"] { width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--gray-light); border-radius: var(--radius); font-size: 1rem; }
+        .admin-login input:focus { outline: none; border-color: var(--primary); }
+        .admin-login .btn { width: 100%; padding: 0.85rem; margin-top: 0.5rem; }
+        .admin-login .error { color: #dc2626; font-size: 0.9rem; margin-top: 0.75rem; text-align: center; display: none; }
+        .admin-login .error.visible { display: block; }
+
+        .admin-dashboard { display: none; }
+        .admin-dashboard.visible { display: block; }
+        .admin-actions { display: flex; justify-content: flex-end; gap: 0.75rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .admin-actions .btn-outline { padding: 0.5rem 1rem; font-size: 0.9rem; }
+        .admin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; margin-bottom: 2rem; }
+        .admin-card { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: 1.5rem; border-left: 4px solid var(--primary); transition: box-shadow 0.2s, transform 0.2s; }
+        .admin-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+        .admin-card h3 { font-size: 1.1rem; color: var(--dark); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .admin-card h3 i { color: var(--primary); }
+        .admin-card ul { list-style: none; padding: 0; margin: 0; }
+        .admin-card li { margin-bottom: 0.5rem; }
+        .admin-card a { color: var(--primary); font-weight: 500; display: inline-flex; align-items: center; gap: 0.4rem; }
+        .admin-card a:hover { text-decoration: underline; }
+        .admin-card p { color: var(--gray); font-size: 0.95rem; line-height: 1.55; margin: 0; }
+        .admin-card.info { border-left-color: var(--secondary); }
+        .admin-card.info h3 i { color: var(--secondary); }
+        .admin-notes { margin-top: 1rem; }
+        .admin-notes textarea { width: 100%; min-height: 100px; padding: 0.75rem; border: 1px solid var(--gray-light); border-radius: var(--radius); font-family: inherit; font-size: 0.9rem; resize: vertical; }
+        .admin-notes textarea:focus { outline: none; border-color: var(--primary); }
+        .admin-notes .btn { margin-top: 0.5rem; font-size: 0.9rem; padding: 0.5rem 1rem; }
+        @media (max-width: 600px) { .admin-grid { grid-template-columns: 1fr; } .admin-login { margin: 2rem 1rem; padding: 1.5rem; } }
+        body.admin-page .chatbot-toggle,
+        body.admin-page .chatbot-container { display: none !important; }
+    </style>
+</head>
+<body class="admin-page">
+    <header class="header" role="banner">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Accueil SmartShift">
+                <img src="../images/logo.png" alt="SmartShift">
+                <span style="font-size:1.6rem;font-weight:700;font-family:Poppins,Arial,sans-serif;"><span style="color:#155A9E !important;">Smart</span><span style="color:#7FC94C !important;">Shift</span></span>
+            </a>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Retour au site</a></li>
+                    <li id="admin-logout-wrap" style="display:none;"><button type="button" class="btn btn-outline" id="admin-logout" style="padding:0.4rem 0.9rem;font-size:0.9rem;">Déconnexion</button></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" aria-label="Menu" tabindex="0" role="button"><i class="fas fa-bars"></i></div>
+        </div>
+    </header>
+
+    <main id="main-content" role="main" style="padding-top: 100px;">
+        <section class="admin-hero">
+            <div class="container">
+                <h1>Administration SmartShift</h1>
+                <p class="lead" id="admin-hero-lead">Connectez-vous pour accéder au tableau de bord</p>
+            </div>
+        </section>
+
+        <div class="admin-wrap">
+            <!-- Formulaire de connexion -->
+            <div id="admin-login-box" class="admin-login">
+                <h2><i class="fas fa-lock"></i> Connexion</h2>
+                <form id="admin-login-form" autocomplete="off">
+                    <div class="form-group">
+                        <label for="admin-email">Email</label>
+                        <input type="email" id="admin-email" name="email" placeholder="kouroumaelisee@gmail.com" required autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-password">Mot de passe</label>
+                        <input type="password" id="admin-password" name="password" placeholder="Mot de passe" required autocomplete="off">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Se connecter</button>
+                    <p id="admin-login-error" class="error" role="alert"></p>
+                </form>
+            </div>
+
+            <!-- Tableau de bord -->
+            <div id="admin-dashboard" class="admin-dashboard">
+                <div class="admin-actions">
+                    <a href="../index.html" class="btn btn-outline"><i class="fas fa-external-link-alt"></i> Voir le site</a>
+                    <button type="button" class="btn btn-outline" id="admin-logout-dash">Déconnexion</button>
+                </div>
+                <div class="admin-grid">
+                    <div class="admin-card">
+                        <h3><i class="fas fa-link"></i> Raccourcis</h3>
+                        <ul>
+                            <li><a href="../index.html" target="_blank" rel="noopener"><i class="fas fa-home"></i> Accueil</a></li>
+                            <li><a href="devis.html" target="_blank" rel="noopener"><i class="fas fa-file-invoice"></i> Devis</a></li>
+                            <li><a href="equipe.html" target="_blank" rel="noopener"><i class="fas fa-users"></i> Équipe</a></li>
+                            <li><a href="services.html" target="_blank" rel="noopener"><i class="fas fa-briefcase"></i> Services</a></li>
+                            <li><a href="realisations.html" target="_blank" rel="noopener"><i class="fas fa-folder-open"></i> Réalisations</a></li>
+                        </ul>
+                    </div>
+                    <div class="admin-card">
+                        <h3><i class="fas fa-code-branch"></i> Projet</h3>
+                        <ul>
+                            <li><a href="https://github.com/Elie224/SmartShift" target="_blank" rel="noopener"><i class="fab fa-github"></i> Dépôt GitHub</a></li>
+                            <li><a href="https://app.netlify.com" target="_blank" rel="noopener"><i class="fas fa-rocket"></i> Netlify</a></li>
+                        </ul>
+                    </div>
+                    <div class="admin-card info">
+                        <h3><i class="fas fa-info-circle"></i> Formulaires</h3>
+                        <p>Les demandes de devis et la newsletter partent par <strong>email</strong> (mailto) et <strong>WhatsApp</strong>. Aucune base de données sur ce site. Consulte ta boîte mail et WhatsApp pour les sollicitations.</p>
+                    </div>
+                    <div class="admin-card">
+                        <h3><i class="fas fa-sticky-note"></i> Notes</h3>
+                        <p>Notes privées (stockées localement dans ton navigateur).</p>
+                        <div class="admin-notes">
+                            <textarea id="admin-notes" placeholder="Idées, tâches, rappels..."></textarea>
+                            <button type="button" class="btn btn-primary" id="admin-notes-save">Enregistrer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-bottom">
+                <p id="copyright-admin"></p>
+                <div class="footer-links">
+                    <a href="confidentialite.html">Confidentialité</a>
+                    <a href="conditions.html">CGU</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            const STORAGE_KEY = 'smartshift_admin';
+            const NOTES_KEY = 'smartshift_admin_notes';
+            const ADMIN_EMAIL = 'kouroumaelisee@gmail.com';
+            const ADMIN_PASSWORD = 'Kourouma2025@';
+
+            const loginBox = document.getElementById('admin-login-box');
+            const dashboard = document.getElementById('admin-dashboard');
+            const form = document.getElementById('admin-login-form');
+            const emailInput = document.getElementById('admin-email');
+            const input = document.getElementById('admin-password');
+            const errorEl = document.getElementById('admin-login-error');
+            const heroLead = document.getElementById('admin-hero-lead');
+            const logoutBtn = document.getElementById('admin-logout-dash');
+            const notesTa = document.getElementById('admin-notes');
+            const notesSave = document.getElementById('admin-notes-save');
+
+            function isLoggedIn() {
+                return sessionStorage.getItem(STORAGE_KEY) === '1';
+            }
+
+            function setLoggedIn(value) {
+                if (value) sessionStorage.setItem(STORAGE_KEY, '1');
+                else sessionStorage.removeItem(STORAGE_KEY);
+            }
+
+            function showLogin() {
+                loginBox.style.display = 'block';
+                dashboard.classList.remove('visible');
+                heroLead.textContent = 'Connectez-vous pour accéder au tableau de bord';
+                document.querySelector('#admin-logout-wrap') && (document.getElementById('admin-logout-wrap').style.display = 'none');
+            }
+
+            function showDashboard() {
+                loginBox.style.display = 'none';
+                dashboard.classList.add('visible');
+                heroLead.textContent = 'Tableau de bord';
+                var w = document.getElementById('admin-logout-wrap');
+                if (w) w.style.display = '';
+                var stored = localStorage.getItem(NOTES_KEY);
+                if (notesTa && stored) notesTa.value = stored;
+            }
+
+            function showError(msg) {
+                errorEl.textContent = msg || '';
+                errorEl.classList.toggle('visible', !!msg);
+            }
+
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    showError('');
+                    var email = (emailInput && emailInput.value) ? emailInput.value.trim().toLowerCase() : '';
+                    var pwd = input.value;
+                    if (email === ADMIN_EMAIL.toLowerCase() && pwd === ADMIN_PASSWORD) {
+                        setLoggedIn(true);
+                        showDashboard();
+                        if (emailInput) emailInput.value = '';
+                        input.value = '';
+                    } else {
+                        showError('Email ou mot de passe incorrect.');
+                    }
+                });
+            }
+
+            function logout() {
+                setLoggedIn(false);
+                showLogin();
+            }
+
+            var logoutWrap = document.getElementById('admin-logout');
+            if (logoutWrap) logoutWrap.addEventListener('click', logout);
+            if (logoutBtn) logoutBtn.addEventListener('click', logout);
+
+            if (notesSave && notesTa) {
+                notesSave.addEventListener('click', function() {
+                    localStorage.setItem(NOTES_KEY, notesTa.value);
+                    notesSave.textContent = 'Enregistré ✓';
+                    setTimeout(function() { notesSave.textContent = 'Enregistrer'; }, 1500);
+                });
+            }
+
+            if (isLoggedIn()) showDashboard();
+            else showLogin();
+
+            var c = document.getElementById('copyright-admin');
+            if (c) c.textContent = '© ' + new Date().getFullYear() + ' SmartShift. Tous droits réservés.';
+        })();
+    </script>
+    <script src="/js/script.js"></script>
+</body>
+</html>

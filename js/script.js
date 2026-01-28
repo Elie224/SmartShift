@@ -1,42 +1,39 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Menu mobile amélioré
+    // Menu mobile : overlay = .navbar (contient nav-links + nav-buttons)
     const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    const navbar = document.querySelector('.navbar');
     const body = document.body;
-    
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-            menuToggle.innerHTML = navLinks.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+
+    function closeMenu() {
+        if (!navbar) return;
+        navbar.classList.remove('active');
+        body.style.overflow = '';
+        if (menuToggle) menuToggle.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+    }
+
+    function isMenuOpen() {
+        return navbar && navbar.classList.contains('active');
+    }
+
+    if (menuToggle && navbar) {
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navbar.classList.toggle('active');
+            body.style.overflow = isMenuOpen() ? 'hidden' : '';
+            menuToggle.innerHTML = isMenuOpen() ? '<i class="fas fa-times" aria-hidden="true"></i>' : '<i class="fas fa-bars" aria-hidden="true"></i>';
         });
-        
-        // Fermer le menu quand on clique sur un lien
-        const navLinksItems = document.querySelectorAll('.nav-links a');
-        navLinksItems.forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                body.style.overflow = '';
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            });
+
+        document.querySelectorAll('.nav-links a, .nav-buttons a').forEach(function(link) {
+            link.addEventListener('click', closeMenu);
         });
-        
-        // Fermer le menu quand on clique en dehors
+
         document.addEventListener('click', function(e) {
-            if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
-                navLinks.classList.remove('active');
-                body.style.overflow = '';
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            }
+            if (!isMenuOpen()) return;
+            if (!menuToggle.contains(e.target) && !navbar.contains(e.target)) closeMenu();
         });
-        
-        // Fermer le menu lors du redimensionnement de la fenêtre
+
         window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                navLinks.classList.remove('active');
-                body.style.overflow = '';
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            }
+            if (window.innerWidth > 768) closeMenu();
         });
     }
     

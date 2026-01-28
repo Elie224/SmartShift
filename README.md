@@ -2,9 +2,9 @@
 
 Site web professionnel statique pour **SmartShift** : création de sites web, applications mobiles, accompagnement à la digitalisation, intégration de l'IA pour automatiser les tâches, logistique et transport.
 
-## 📦 GitHub et déploiement Vercel
+## 📦 GitHub et déploiement Netlify
 
-Voir **[DEPLOY.md](DEPLOY.md)** pour le détail. Résumé : crée le dépôt **SmartShift** sur [GitHub](https://github.com/new) (vide), puis exécute les commandes du guide. Ensuite, déploie sur [Vercel](https://vercel.com) en important le repo.
+Voir **[DEPLOY.md](DEPLOY.md)** pour le détail. Résumé : crée le dépôt **SmartShift** sur [GitHub](https://github.com/new) (vide), puis exécute les commandes du guide. Ensuite, déploie sur [Netlify](https://www.netlify.com) en important le repo.
 
 ## 📁 Structure du Projet
 
@@ -21,9 +21,11 @@ startup/
 │   ├── equipe.html            # Équipe
 │   ├── realisations.html      # Réalisations
 │   ├── services.html          # Catalogue services
+│   ├── admin.html             # Administration (tableau de bord, accès mot de passe)
 │   └── service-*.html         # Pages services (web, mobile, digital, etc.)
+├── netlify.toml               # Config Netlify (publish = ".")
 ├── render.yaml                # Config Render (optionnel)
-├── DEPLOY.md                  # Guide GitHub + Vercel
+├── DEPLOY.md                  # Guide GitHub + Netlify
 └── README.md                  # Documentation
 ```
 
@@ -98,6 +100,7 @@ cd startup
 - **Devis** (`pages/devis.html`) - Demande de devis
 - **Politique de confidentialité** (`pages/confidentialite.html`) - RGPD, protection des données
 - **Conditions d'utilisation** (`pages/conditions.html`) - CGU du site
+- **Administration** (`pages/admin.html`) - Tableau de bord (accès par mot de passe)
 
 ### Pages de Services (6 domaines, dans `pages/`)
 - **Création de sites web** (`pages/service-web.html`)
@@ -113,6 +116,7 @@ cd startup
 - **Couleurs** : Modifier les variables CSS dans `css/styles.css`
 - **Contenu** : Éditer les fichiers HTML
 - **Contact** : Modifier les emails et numéros dans `js/script.js`
+- **Admin** : Page `pages/admin.html`. Identifiants (email, mot de passe) configurables dans le code : `ADMIN_EMAIL`, `ADMIN_PASSWORD`.
 
 ## 🎨 Design
 
@@ -141,17 +145,17 @@ cd startup
 
 ## 🚀 Déploiement
 
-### Vercel (recommandé)
+### Netlify (recommandé)
 1. Pousser le code sur GitHub (voir [DEPLOY.md](DEPLOY.md)).
-2. [Vercel](https://vercel.com) → **Add New** → **Project** → importer **Elie224/SmartShift**.
-3. **Root Directory** : `./` · **Output Directory** : `.` · **Build** : vide ou `echo "ok"`.
-4. **Deploy**. URL type `https://smartshift-xxx.vercel.app`.
+2. [Netlify](https://www.netlify.com) → **Add new site** → **Import an existing project** → **GitHub** → **Elie224/SmartShift**.
+3. **Build command** : vide · **Publish directory** : `.`
+4. **Deploy site**. URL type `https://xxx.netlify.app`.
 
 Les chemins `/css/`, `/js/`, `/images/`, `/pages/` sont à la racine.
 
 ### Autres hébergeurs
 - **Render** – `render.yaml` inclus ; Build : `echo 'Static site – no build'`, Publish : `.`
-- **Netlify** – Connecter le repo, publish directory = `.`
+- **Vercel** – Connecter le repo, Output directory = `.`
 - **GitHub Pages** – Hébergement gratuit
 
 ## 🔧 Maintenance

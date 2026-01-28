@@ -43,6 +43,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -81,7 +82,7 @@ img, .responsive-img {
 }
 
 /* Style spécifique pour l'image acueille.png */
-img[src*="acueille"] {
+img[src*="acceuille"] {
     border-radius: 20px;
     box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -91,7 +92,7 @@ img[src*="acueille"] {
     z-index: 10;
 }
 
-img[src*="acueille"]:hover {
+img[src*="acceuille"]:hover {
     transform: scale(1.5);
     box-shadow: 0 12px 35px rgba(var(--primary-rgb), 0.25);
 }
@@ -181,6 +182,7 @@ section {
     box-shadow: var(--shadow);
     z-index: 1000;
     transition: var(--transition);
+    padding-top: env(safe-area-inset-top, 0);
 }
 
 .header.scrolled {
@@ -248,16 +250,19 @@ section {
 
 .menu-toggle {
     display: none;
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     cursor: pointer;
     color: var(--dark);
     padding: 0.5rem;
-    border-radius: 5px;
+    border-radius: 8px;
     transition: background-color 0.3s ease;
     min-width: 44px;
     min-height: 44px;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
+    border: none;
+    background: transparent;
 }
 
 .menu-toggle:hover {
@@ -1325,40 +1330,6 @@ section {
         font-size: 2rem;
     }
     
-    .navbar {
-        position: fixed;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background-color: var(--white);
-        box-shadow: var(--shadow);
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem 2rem;
-        transform: translateY(-150%);
-        transition: var(--transition);
-    }
-    
-    .navbar.active {
-        transform: translateY(0);
-    }
-    
-    .nav-links {
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    .nav-links li {
-        margin: 0;
-        padding: 0.8rem 0;
-        border-bottom: 1px solid var(--gray-light);
-    }
-    
-    .nav-buttons {
-        margin: 1rem 0 0;
-        width: 100%;
-    }
-    
     .menu-toggle {
         display: flex !important;
         visibility: visible !important;
@@ -1893,11 +1864,11 @@ section {
         transform: scale(1.4);
     }
     
-    img[src*="acueille"] {
+    img[src*="acceuille"] {
         transform: scale(1.1);
     }
     
-    img[src*="acueille"]:hover {
+    img[src*="acceuille"]:hover {
         transform: scale(1.3);
     }
     
@@ -1917,46 +1888,111 @@ section {
 @media (max-width: 768px) {
     .header .container {
         height: 70px;
+        min-height: 70px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        gap: 0.75rem;
     }
     
-    .nav-links {
-        position: fixed;
-        top: 70px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background: var(--white);
-        flex-direction: column;
-        justify-content: flex-start;
+    .header .logo {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        display: flex;
         align-items: center;
-        padding-top: 2rem;
-        transition: left 0.3s ease;
-        box-shadow: var(--shadow-lg);
-        z-index: 999;
+        gap: 0.5rem;
     }
     
-    .nav-links.active {
-        left: 0;
+    .header .logo img {
+        height: 36px !important;
+        max-width: 100px;
+        width: auto;
+        object-fit: contain;
+        flex-shrink: 0;
     }
     
-    .nav-links li {
-        margin: 1rem 0;
+    .header .logo span {
+        font-size: 1.35rem !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     
-    .nav-links a {
-        font-size: 1.1rem;
-        padding: 0.5rem 1rem;
-    }
-    
-    .menu-toggle {
+    .header .menu-toggle {
+        flex-shrink: 0 !important;
         display: flex !important;
+        align-items: center;
+        justify-content: center;
         visibility: visible !important;
         position: relative !important;
-        width: auto !important;
-        height: auto !important;
+        width: 44px !important;
+        min-width: 44px !important;
+        height: 44px !important;
+        min-height: 44px !important;
         overflow: visible !important;
         pointer-events: auto !important;
         opacity: 1 !important;
+        z-index: 10;
+        background: rgba(0,0,0,.06);
+        color: var(--dark);
+    }
+    
+    .header .menu-toggle:hover,
+    .header .menu-toggle:active {
+        background: rgba(0,0,0,.1);
+    }
+    
+    .navbar {
+        position: fixed;
+        top: calc(70px + env(safe-area-inset-top, 0px));
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px - env(safe-area-inset-top, 0px));
+        background: var(--white);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        padding: 1.5rem 1.25rem 2rem;
+        transition: left 0.3s ease;
+        box-shadow: var(--shadow-lg);
+        z-index: 999;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .navbar.active {
+        left: 0;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        align-items: stretch;
+    }
+    
+    .nav-links li {
+        margin: 0;
+        border-bottom: 1px solid var(--gray-light);
+    }
+    
+    .nav-links a {
+        font-size: 1.05rem;
+        padding: 0.85rem 1rem;
+        display: block;
+        min-height: 44px;
+        align-items: center;
+    }
+    
+    .nav-buttons {
+        margin-top: 1rem;
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    .nav-buttons .btn {
+        width: 100%;
+        justify-content: center;
+        min-height: 44px;
     }
     
     .hero {
@@ -2069,12 +2105,12 @@ section {
         justify-content: center;
     }
     
-    img[src*="acueille"] {
+    img[src*="acceuille"] {
         transform: scale(1.0);
         max-width: 100%;
     }
     
-    img[src*="acueille"]:hover {
+    img[src*="acceuille"]:hover {
         transform: scale(1.2);
     }
     
@@ -2136,23 +2172,36 @@ section {
     
     .header .container {
         height: 60px;
+        gap: 0.5rem;
     }
     
-    .nav-links {
-        top: 60px;
-        height: calc(100vh - 60px);
+    .header .logo {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+    }
+    
+    .header .menu-toggle {
+        flex-shrink: 0;
+    }
+    
+    .navbar {
+        top: calc(60px + env(safe-area-inset-top, 0px));
+        height: calc(100vh - 60px - env(safe-area-inset-top, 0px));
+        padding: 1rem 1rem 1.5rem;
     }
     
     .logo {
         font-size: 1.5rem;
     }
     
-    .logo img {
-        height: 40px !important;
+    .header .logo img {
+        height: 34px !important;
+        max-width: 90px;
     }
     
     .logo span {
-        font-size: 1.5rem !important;
+        font-size: 1.35rem !important;
     }
     
     .hero {
@@ -2223,11 +2272,11 @@ section {
         font-size: 0.9rem;
     }
     
-    img[src*="acueille"] {
+    img[src*="acceuille"] {
         transform: scale(0.9);
     }
     
-    img[src*="acueille"]:hover {
+    img[src*="acceuille"]:hover {
         transform: scale(1.0);
     }
     
@@ -2317,11 +2366,11 @@ section {
         transform: scale(0.9);
     }
     
-    img[src*="acueille"] {
+    img[src*="acceuille"] {
         transform: scale(0.8);
     }
     
-    img[src*="acueille"]:hover {
+    img[src*="acceuille"]:hover {
         transform: scale(0.9);
     }
 }
@@ -2407,7 +2456,7 @@ section {
     transition: transform 0.1s ease;
 }
 
-/* Amélioration de la lisibilité sur mobile */
+/* Amélioration de la lisibilité et du tactile sur mobile */
 @media (max-width: 768px) {
     body {
         -webkit-text-size-adjust: 100%;
@@ -2418,11 +2467,14 @@ section {
         font-size: 16px !important; /* Évite le zoom sur iOS */
     }
     
-    .btn {
-        min-height: 44px; /* Taille minimale recommandée pour le tactile */
-        display: flex;
+    .btn,
+    .menu-toggle {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
         align-items: center;
         justify-content: center;
+        touch-action: manipulation;
     }
     
     .nav-links a {
@@ -2430,6 +2482,7 @@ section {
         display: flex;
         align-items: center;
         justify-content: center;
+        touch-action: manipulation;
     }
 }
 

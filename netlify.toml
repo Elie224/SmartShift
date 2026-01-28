@@ -1,0 +1,4 @@
+# Netlify – SmartShift (site statique)
+[build]
+  publish = "."
+  command = ""

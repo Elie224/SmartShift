@@ -37,5 +37,5 @@ if errorlevel 1 (
 
 echo.
 echo OK – Code pousse sur https://github.com/Elie224/SmartShift
-echo Tu peux maintenant deployer sur Vercel en important ce depot.
+echo Tu peux maintenant deployer sur Netlify en important ce depot.
 pause

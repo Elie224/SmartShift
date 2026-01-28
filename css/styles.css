@@ -648,6 +648,91 @@ section {
     }
 }
 
+/* Section Partenaires */
+.partners {
+    background: var(--light);
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.partner-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    border: 1px solid rgba(var(--primary-rgb), 0.08);
+}
+
+.partner-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+}
+
+.partner-card-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    color: inherit;
+    text-decoration: none;
+}
+
+.partner-card-link:hover {
+    color: inherit;
+}
+
+.partner-card-logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.partner-card-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.partner-card-name {
+    font-size: 1.35rem;
+    color: var(--dark);
+    margin-bottom: 0.75rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.partner-card-desc {
+    font-size: 0.95rem;
+    color: var(--gray);
+    line-height: 1.55;
+    margin-bottom: 1rem;
+    flex: 1;
+}
+
+.partner-card-cta {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.partner-card:hover .partner-card-cta {
+    color: var(--primary-dark);
+    gap: 0.6rem;
+}
+
 /* Portfolio Section */
 .portfolio-filter {
     display: flex;
@@ -675,7 +760,7 @@ section {
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(350px, 100%), 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
 }
@@ -685,6 +770,7 @@ section {
     border-radius: var(--radius-lg);
     overflow: hidden;
     height: 250px;
+    min-width: 0;
 }
 
 .portfolio-item img {
@@ -749,7 +835,7 @@ section {
 }
 
 .testimonial-card {
-    min-width: 350px;
+    min-width: min(350px, 100%);
     scroll-snap-align: start;
     background-color: var(--light);
     border-radius: var(--radius-lg);
@@ -961,10 +1047,12 @@ section {
 .newsletter-form {
     display: flex;
     margin-top: 1rem;
+    flex-wrap: wrap;
 }
 
 .newsletter-form input {
     flex: 1;
+    min-width: 200px;
     padding: 0.8rem 1rem;
     border: none;
     border-radius: var(--radius) 0 0 var(--radius);
@@ -1033,7 +1121,7 @@ section {
     opacity: 0;
     visibility: hidden;
     transition: var(--transition);
-    z-index: 999;
+    z-index: 998;
 }
 
 .back-to-top.active {
@@ -1064,6 +1152,7 @@ section {
     cursor: pointer;
     z-index: 999;
     transition: var(--transition);
+    padding-bottom: env(safe-area-inset-bottom, 0);
 }
 
 .chatbot-toggle:hover {
@@ -1076,6 +1165,7 @@ section {
     bottom: 8rem;
     right: 2rem;
     width: 350px;
+    max-width: calc(100vw - 2rem);
     background-color: var(--white);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
@@ -1345,10 +1435,6 @@ section {
         font-size: 2.2rem;
     }
     
-    .hero-image {
-        display: none;
-    }
-    
     .portfolio-grid {
         grid-template-columns: 1fr;
     }
@@ -1384,10 +1470,24 @@ section {
         flex-direction: column;
         gap: 1rem;
     }
-    
+}
+
+@media (max-width: 768px) {
     .chatbot-container {
         width: calc(100% - 2rem);
+        max-width: 360px;
         right: 1rem;
+        left: auto;
+        bottom: calc(8rem + env(safe-area-inset-bottom, 0));
+    }
+    .chatbot-toggle {
+        bottom: calc(2rem + env(safe-area-inset-bottom, 0));
+        right: 1rem;
+    }
+    .back-to-top {
+        left: 1rem;
+        right: auto;
+        bottom: calc(2rem + env(safe-area-inset-bottom, 0));
     }
 }
 
@@ -1619,6 +1719,12 @@ section {
     padding: 4rem 0;
 }
 
+.cta-section .container {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .cta-section h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -1749,9 +1855,46 @@ section {
     .cta-section h2 {
         font-size: 2rem;
     }
+    .cta-section {
+        padding: 3rem 0;
+    }
+    .cta-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+    .page-hero {
+        padding-top: 6rem !important;
+        padding-bottom: 2rem !important;
+    }
 }
 
 @media (max-width: 576px) {
+    .cta-section h2 {
+        font-size: 1.75rem;
+    }
+    .cta-section p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    .cta-section {
+        padding: 2.5rem 0;
+    }
+    .newsletter-form {
+        flex-direction: column;
+    }
+    .newsletter-form input,
+    .newsletter-form button {
+        width: 100%;
+        border-radius: var(--radius);
+    }
+    .newsletter-form input {
+        min-width: 0;
+    }
+    .contact-form {
+        padding: 1rem;
+        max-width: 100% !important;
+    }
     .portfolio-detailed-image {
         height: 200px;
     }
@@ -1882,6 +2025,16 @@ section {
         gap: 1.25rem;
     }
     .other-services h2 { font-size: 1.7rem; }
+    .partners-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .partner-card-link {
+        padding: 1.75rem 1.25rem;
+    }
 }
 
 /* Tablettes et mobiles (768px et moins) */
@@ -2088,6 +2241,23 @@ section {
     
     .contact-form {
         padding: 1.5rem;
+        max-width: 100% !important;
+    }
+    .partners-grid {
+        max-width: 100%;
+    }
+    .partner-card-link {
+        padding: 1.5rem 1rem;
+    }
+    .partner-card-logo {
+        width: 88px;
+        height: 88px;
+    }
+    .partner-card-name {
+        font-size: 1.2rem;
+    }
+    .partner-card-desc {
+        font-size: 0.9rem;
     }
     
     .footer-grid {
@@ -2263,8 +2433,17 @@ section {
     }
     
     .contact-form input,
-    .contact-form textarea {
+    .contact-form textarea,
+    .contact-form select {
         padding: 0.75rem;
+        max-width: 100%;
+    }
+    .hero-content {
+        max-width: 100% !important;
+    }
+    .page-hero {
+        padding-top: 5rem !important;
+        padding-bottom: 1.5rem !important;
     }
     
     .btn {
@@ -2373,6 +2552,43 @@ section {
     img[src*="acceuille"]:hover {
         transform: scale(0.9);
     }
+    
+    .cta-section h2 {
+        font-size: 1.5rem;
+    }
+    .cta-section p {
+        font-size: 0.9rem;
+        margin-bottom: 1.25rem;
+    }
+    .cta-section {
+        padding: 2rem 0;
+    }
+    .chatbot-toggle {
+        width: 52px;
+        height: 52px;
+        font-size: 1.35rem;
+        bottom: calc(1rem + env(safe-area-inset-bottom, 0));
+        right: 0.75rem;
+    }
+    .chatbot-container {
+        width: calc(100% - 1rem);
+        max-width: none;
+        right: 0.5rem;
+        bottom: calc(6.5rem + env(safe-area-inset-bottom, 0));
+    }
+    .chatbot-messages {
+        height: 220px;
+    }
+    .back-to-top {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+        bottom: calc(1rem + env(safe-area-inset-bottom, 0));
+        left: 0.75rem;
+    }
+    .contact-form {
+        padding: 0.75rem;
+    }
 }
 
 /* Orientation paysage sur mobile */
@@ -2420,7 +2636,8 @@ section {
         transform: none;
     }
     
-    .partner-card-detailed:hover {
+    .partner-card-detailed:hover,
+    .partner-card:hover {
         transform: none;
     }
     
@@ -2440,6 +2657,7 @@ section {
 .touch-device .feature-card,
 .touch-device .category-card,
 .touch-device .partner-card-detailed,
+.touch-device .partner-card,
 .touch-device .pricing-card {
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
@@ -2451,6 +2669,7 @@ section {
 .touch-device .feature-card:active,
 .touch-device .category-card:active,
 .touch-device .partner-card-detailed:active,
+.touch-device .partner-card:active,
 .touch-device .pricing-card:active {
     transform: scale(0.98) !important;
     transition: transform 0.1s ease;

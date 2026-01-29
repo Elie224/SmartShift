@@ -442,7 +442,7 @@ Ou contactez-nous directement au +33 6 89 30 64 32`);
         state.lastIntent = 'contact';
         const c = SMARTSHIFT_KB.contact;
         return {
-          reply: `Vous pouvez nous joindre par <b>téléphone</b> : ${c.phone}, par <b>email</b> : ${c.email}. ${c.horaires ? c.horaires + ' ' : ''}Une demande de <a href="pages/devis.html">devis</a> est aussi possible en ligne.`,
+          reply: `Vous pouvez nous joindre par <b>téléphone</b> : ${c.phone}, par <b>email</b> : ${c.email}. ${c.horaires ? c.horaires + ' ' : ''}Utilisez notre <a href="pages/contact.html">formulaire de contact</a> ou demandez un <a href="pages/devis.html">devis</a> en ligne.`,
           intent: 'contact'
         };
       }

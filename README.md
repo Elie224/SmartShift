@@ -141,7 +141,7 @@ cd startup
 ## 📞 Contact
 
 - **Téléphone** : +33 6 89 30 64 32
-- **Email** : kouroumaelisee@gmail.com
+- **Email** : smartshift12@gmail.com
 
 ## 🚀 Déploiement
 

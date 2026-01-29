@@ -283,7 +283,7 @@ ${name}`;
             
             // Créer les liens
             const whatsappLink = `https://wa.me/33689306432?text=${encodedWhatsapp}`;
-            const emailLink = `mailto:kouroumaelisee@gmail.com?subject=${encodedEmailSubject}&body=${encodedEmailBody}`;
+            const emailLink = `mailto:smartshift12@gmail.com?subject=${encodedEmailSubject}&body=${encodedEmailBody}`;
             
             // Afficher les options
             const choice = confirm(`Votre message a été préparé ! 
@@ -345,9 +345,9 @@ Ou contactez-nous directement au +33 6 89 30 64 32`);
         { name: 'Engagement', desc: 'Objectif : satisfaire le plus de clients et réaliser le plus de projets possibles.' }
       ],
       about: "SmartShift est votre partenaire pour les sites web, applications mobiles, l'accompagnement à la digitalisation, l'intégration de l'IA pour automatiser vos tâches, la logistique et le transport. Notre objectif : satisfaire le plus de clients et réaliser le plus de projets possibles, avec des solutions sur mesure.",
-      contact: { phone: '+33 6 89 30 64 32', email: 'kouroumaelisee@gmail.com', horaires: 'Du lundi au vendredi, 9h à 18h. N\'hésitez pas à nous écrire ou à demander un devis en ligne à tout moment.' },
+      contact: { phone: '+33 6 89 30 64 32', email: 'smartshift12@gmail.com', horaires: 'Du lundi au vendredi, 9h à 18h. N\'hésitez pas à nous écrire ou à demander un devis en ligne à tout moment.' },
       objectives: 'Nos objectifs : 500+ clients satisfaits, 1000+ projets réalisés, 20+ experts à votre service.',
-      devis: 'Pour un devis personnalisé, utilisez le bouton « Devis gratuit » en haut de la page ou la page <a href="pages/devis.html">Devis</a>. Nous vous répondons rapidement.',
+      devis: 'Pour un devis personnalisé, rendez-vous sur la page <a href="pages/devis.html">Devis</a> ou cliquez sur « Demandez un devis » dans la section d\'accueil. Nous vous répondons rapidement.',
       faq: {
         accompagnement: 'Oui. Nous assurons suivi, maintenance et formation après livraison pour garantir la réussite de votre projet.',
         pme: 'Absolument. Nous adaptons nos offres à la taille et aux besoins de chaque entreprise, de la startup à la grande société.'
@@ -456,7 +456,7 @@ Ou contactez-nous directement au +33 6 89 30 64 32`);
       }
 
       // ——— Équipe ———
-      if (match(msg, /équipe|fondateurs?|qui travaille|qui fait|elisee|kourouma/i)) {
+      if (match(msg, /équipe|fondateurs?|qui travaille|qui fait|nema|elisee|kourouma/i)) {
         state.lastIntent = 'team';
         return { reply: SMARTSHIFT_KB.team, intent: 'team' };
       }
@@ -541,7 +541,7 @@ Merci !`;
             const encodedEmailBody = encodeURIComponent(emailBody);
             
             // Créer le lien email
-            const emailLink = `mailto:kouroumaelisee@gmail.com?subject=${encodedEmailSubject}&body=${encodedEmailBody}`;
+            const emailLink = `mailto:smartshift12@gmail.com?subject=${encodedEmailSubject}&body=${encodedEmailBody}`;
             
             // Afficher confirmation
             alert(`Merci pour votre inscription ! 

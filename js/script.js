@@ -16,11 +16,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     if (menuToggle && navbar) {
+        // ARIA attributes for accessibility
+        menuToggle.setAttribute('aria-controls', 'main-navbar');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        navbar.setAttribute('id', 'main-navbar');
+        menuToggle.setAttribute('aria-label', 'Ouvrir le menu principal');
+
         menuToggle.addEventListener('click', function(e) {
             e.stopPropagation();
+            const open = !isMenuOpen();
             navbar.classList.toggle('active');
-            body.style.overflow = isMenuOpen() ? 'hidden' : '';
-            menuToggle.innerHTML = isMenuOpen() ? '<i class="fas fa-times" aria-hidden="true"></i>' : '<i class="fas fa-bars" aria-hidden="true"></i>';
+            body.style.overflow = open ? 'hidden' : '';
+            menuToggle.innerHTML = open ? '<i class="fas fa-times" aria-hidden="true"></i>' : '<i class="fas fa-bars" aria-hidden="true"></i>';
+            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            if (open) {
+                // Focus first nav link
+                const firstLink = navbar.querySelector('.nav-links a');
+                if (firstLink) firstLink.focus();
+            } else {
+                menuToggle.focus();
+            }
         });
 
         document.querySelectorAll('.nav-links a').forEach(function(link) {
@@ -34,6 +49,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
         window.addEventListener('resize', function() {
             if (window.innerWidth > 768) closeMenu();
+        });
+
+        // Keyboard accessibility: Esc closes menu, focus trap
+        document.addEventListener('keydown', function(e) {
+            if (!isMenuOpen()) return;
+            if (e.key === 'Escape') {
+                closeMenu();
+                menuToggle.focus();
+            }
+            // Focus trap inside menu
+            if (e.key === 'Tab') {
+                const focusable = navbar.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+                if (focusable.length === 0) return;
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
         });
     }
     
@@ -165,16 +203,57 @@ document.addEventListener('DOMContentLoaded', function() {
     const chatbotInput = document.querySelector('.chatbot-input input');
     const chatbotSend = document.querySelector('.chatbot-input button');
     const chatbotMessages = document.querySelector('.chatbot-messages');
-    
+
     if (chatbotToggle && chatbotContainer) {
+        chatbotToggle.setAttribute('aria-controls', 'chatbot-modal');
+        chatbotToggle.setAttribute('aria-expanded', 'false');
+        chatbotToggle.setAttribute('aria-label', 'Ouvrir le chatbot');
+        chatbotContainer.setAttribute('id', 'chatbot-modal');
         chatbotToggle.addEventListener('click', function() {
+            const open = !chatbotContainer.classList.contains('active');
             chatbotContainer.classList.toggle('active');
+            chatbotToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            if (open) {
+                // Focus input
+                setTimeout(() => { if (chatbotInput) chatbotInput.focus(); }, 100);
+            } else {
+                chatbotToggle.focus();
+            }
         });
     }
-    
+
     if (chatbotClose && chatbotContainer) {
+        chatbotClose.setAttribute('aria-label', 'Fermer le chatbot');
         chatbotClose.addEventListener('click', function() {
             chatbotContainer.classList.remove('active');
+            chatbotToggle.setAttribute('aria-expanded', 'false');
+            chatbotToggle.focus();
+        });
+    }
+
+    // Keyboard accessibility: Esc closes chatbot, focus trap
+    if (chatbotContainer) {
+        chatbotContainer.addEventListener('keydown', function(e) {
+            if (!chatbotContainer.classList.contains('active')) return;
+            if (e.key === 'Escape') {
+                chatbotContainer.classList.remove('active');
+                if (chatbotToggle) chatbotToggle.setAttribute('aria-expanded', 'false');
+                if (chatbotToggle) chatbotToggle.focus();
+            }
+            // Focus trap inside chatbot
+            if (e.key === 'Tab') {
+                const focusable = chatbotContainer.querySelectorAll('input, button, textarea, [tabindex]:not([tabindex="-1"])');
+                if (focusable.length === 0) return;
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
         });
     }
     
@@ -309,12 +388,21 @@ Ou contactez-nous directement au +33 6 89 30 64 32`);
     // Accordéon FAQ
     const faqQuestions = document.querySelectorAll('.faq-question');
     faqQuestions.forEach(btn => {
+        btn.setAttribute('tabindex', '0');
+        btn.setAttribute('role', 'button');
+        btn.setAttribute('aria-expanded', 'false');
         btn.addEventListener('click', function() {
             const expanded = this.getAttribute('aria-expanded') === 'true';
             // Fermer toutes les autres
             faqQuestions.forEach(q => q.setAttribute('aria-expanded', 'false'));
             // Ouvrir/cacher celle cliquée
             this.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        });
+        btn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                btn.click();
+            }
         });
     });
 

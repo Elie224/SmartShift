@@ -7,11 +7,11 @@
     <meta name="description" content="SmartShift : sites web, applications mobiles, digitalisation, IA & automatisation, logistique et transport. Découvrez nos services.">
     <meta property="og:title" content="Nos Services – SmartShift">
     <meta property="og:description" content="Sites web, applications mobiles, digitalisation, IA & automatisation, logistique et transport.">
-    <meta property="og:url" content="https://votre-site.com/services">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Nos Services – SmartShift">
     <meta name="twitter:description" content="Sites web, applications mobiles, digitalisation, IA & automatisation, logistique et transport.">
-    <link rel="stylesheet" href="/css/styles.css">
+    <script src="../js/seo.js" defer></script>
+    <link rel="stylesheet" href="../css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -90,21 +90,22 @@
         </div>
     </footer>
 
-    <script src="/js/script.js"></script>
+    <script src="../js/script.js"></script>
     <script>
         // Services statiques - affichage direct
         document.addEventListener('DOMContentLoaded', function() {
             const container = document.getElementById('services-container');
             
+
             const services = [
-                { titre: 'Création de sites web', description: 'Sites vitrines, e-commerce et applications web sur mesure. SEO et maintenance.', lien: 'service-web.html', categorie: 'web', image: '../images/sites.jpeg' },
-                { titre: 'Applications mobiles', description: 'Apps iOS et Android, applications métier, géolocalisation et suivi en temps réel.', lien: 'service-mobile.html', categorie: 'mobile', image: '../images/mobiles.jpeg' },
-                { titre: 'Accompagnement à la digitalisation', description: 'Stratégie digitale, formation des équipes, optimisation des processus et conseil.', lien: 'service-digital.html', categorie: 'digital', image: '../images/digital.jpeg' },
-                { titre: 'IA & automatisation des tâches', description: 'Intégration de l\'IA en entreprise, automatisation de processus, chatbots et orchestration d\'outils.', lien: 'service-automation.html', categorie: 'automation' },
-                { titre: 'Logistique', description: 'Gestion logistique, suivi des marchandises, codes-barres & QR codes, optimisation des flux.', lien: 'service-logistics.html', categorie: 'logistics' },
-                { titre: 'Transport', description: 'Applications de transport, gestion de flotte, suivi en temps réel et optimisation des trajets.', lien: 'service-transport.html', categorie: 'transport' }
+                { titre: 'Création de sites web', description: 'Sites vitrines, e-commerce et applications web sur mesure. SEO et maintenance.', lien: 'service-web.html', categorie: 'web', image: '../images/sites.jpeg', width: 180, height: 180 },
+                { titre: 'Applications mobiles', description: 'Apps iOS et Android, applications métier, géolocalisation et suivi en temps réel.', lien: 'service-mobile.html', categorie: 'mobile', image: '../images/mobiles.jpeg', width: 180, height: 180 },
+                { titre: 'Accompagnement à la digitalisation', description: 'Stratégie digitale, formation des équipes, optimisation des processus et conseil.', lien: 'service-digital.html', categorie: 'digital', image: '../images/digital.jpeg', width: 180, height: 180 },
+                { titre: 'IA & automatisation des tâches', description: 'Intégration de l\'IA en entreprise, automatisation de processus, chatbots et orchestration d\'outils.', lien: 'service-automation.html', categorie: 'automation', image: '../images/IA%20%26%20automatisation%20des%20t%C3%A2ches.png', width: 180, height: 180 },
+                { titre: 'Logistique', description: 'Gestion logistique, suivi des marchandises, codes-barres & QR codes, optimisation des flux.', lien: 'service-logistics.html', categorie: 'logistics', image: '../images/Logistique.png', width: 180, height: 180 },
+                { titre: 'Transport', description: 'Applications de transport, gestion de flotte, suivi en temps réel et optimisation des trajets.', lien: 'service-transport.html', categorie: 'transport', image: '../images/Transport.png', width: 180, height: 180 }
             ];
-            const serviceImage = (s) => s.image ? `<img src="${s.image}" alt="${s.titre}">` : '';
+            const serviceImage = (s) => s.image ? `<img src="${s.image}" alt="${s.titre}" loading="lazy" width="${s.width}" height="${s.height}">` : '';
 
             container.innerHTML = services.map(service => `
                 <div class="service-card" data-category="${service.categorie}">

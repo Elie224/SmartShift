@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title>Administration | SmartShift</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .admin-hero { background: var(--gradient-brand); color: var(--white); text-align: center; padding: 5rem 0 3rem; }
@@ -48,8 +48,10 @@
         body.admin-page .chatbot-toggle,
         body.admin-page .chatbot-container { display: none !important; }
     </style>
+    <script src="../js/seo.js" defer></script>
 </head>
 <body class="admin-page">
+    <div id="admin-protect-overlay" style="position:fixed;z-index:99999;inset:0;background:rgba(10,20,40,0.98);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem;font-family:sans-serif;color:#fff;"><form id="admin-protect-form" style="background:#fff;padding:2rem 2.5rem;border-radius:1rem;box-shadow:0 4px 24px #0002;display:flex;flex-direction:column;align-items:center;gap:1rem;"><label for="admin-protect-input" style="color:#222;font-weight:600;font-size:1.1rem;">Mot de passe requis</label><input id="admin-protect-input" type="password" placeholder="Mot de passe" style="padding:0.7rem 1rem;font-size:1rem;border-radius:0.5rem;border:1.5px solid #bbb;width:220px;" autocomplete="off" required><button type="submit" style="margin-top:0.5rem;padding:0.6rem 1.5rem;font-size:1rem;border-radius:0.5rem;background:#155A9E;color:#fff;border:none;cursor:pointer;">Entrer</button><div id="admin-protect-error" style="color:#c00;font-size:0.95rem;display:none;"></div></form><div style="font-size:0.95rem;opacity:0.7;">Accès réservé SmartShift</div></div>
     <header class="header" role="banner">
         <div class="container">
             <a href="../index.html" class="logo" aria-label="Accueil SmartShift">
@@ -146,6 +148,30 @@
     </footer>
 
     <script>
+        // --- Static password overlay (JS-only, not secure for production) ---
+        (function() {
+            var overlay = document.getElementById('admin-protect-overlay');
+            var form = document.getElementById('admin-protect-form');
+            var input = document.getElementById('admin-protect-input');
+            var error = document.getElementById('admin-protect-error');
+            var PASS = 'Kourouma2025@';
+            if (overlay && form && input) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    if (input.value === PASS) {
+                        overlay.style.display = 'none';
+                        setTimeout(function(){input.value='';}, 100);
+                    } else {
+                        error.textContent = 'Mot de passe incorrect.';
+                        error.style.display = 'block';
+                        input.value = '';
+                        input.focus();
+                    }
+                });
+                setTimeout(function(){input.focus();}, 200);
+            }
+        })();
+
         (function() {
             const STORAGE_KEY = 'smartshift_admin';
             const NOTES_KEY = 'smartshift_admin_notes';
@@ -235,6 +261,6 @@
             if (c) c.textContent = '© ' + new Date().getFullYear() + ' SmartShift. Tous droits réservés.';
         })();
     </script>
-    <script src="/js/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>

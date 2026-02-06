@@ -102,6 +102,15 @@
                 </div>
                 <div class="admin-grid">
                     <div class="admin-card">
+                        <h3><i class="fas fa-users-cog"></i> Utilisateurs (démo)</h3>
+                        <form id="user-form" style="display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;margin-bottom:0.7rem;">
+                            <input type="text" id="user-name" placeholder="Nom" required style="flex:1;min-width:90px;">
+                            <input type="email" id="user-email" placeholder="Email" required style="flex:1;min-width:120px;">
+                            <button type="submit" class="btn btn-primary" style="padding:0.5rem 1.2rem;">Ajouter</button>
+                        </form>
+                        <ul id="user-list" style="margin:0;padding:0;list-style:none;"></ul>
+                    </div>
+                    <div class="admin-card">
                         <h3><i class="fas fa-link"></i> Raccourcis</h3>
                         <ul>
                             <li><a href="../index.html" target="_blank" rel="noopener"><i class="fas fa-home"></i> Accueil</a></li>
@@ -148,6 +157,56 @@
     </footer>
 
     <script>
+        // --- Gestion utilisateurs (CRUD localStorage, démo) ---
+        (function() {
+            const USER_KEY = 'smartshift_admin_users';
+            function getUsers() {
+                try { return JSON.parse(localStorage.getItem(USER_KEY)) || []; } catch { return []; }
+            }
+            function saveUsers(users) {
+                localStorage.setItem(USER_KEY, JSON.stringify(users));
+            }
+            function renderUsers() {
+                const list = document.getElementById('user-list');
+                if (!list) return;
+                list.innerHTML = '';
+                const users = getUsers();
+                if (users.length === 0) {
+                    list.innerHTML = '<li style="color:#888;font-size:0.97rem;">Aucun utilisateur.</li>';
+                    return;
+                }
+                users.forEach((u, i) => {
+                    const li = document.createElement('li');
+                    li.style.display = 'flex';
+                    li.style.alignItems = 'center';
+                    li.style.gap = '0.7rem';
+                    li.style.marginBottom = '0.3rem';
+                    li.innerHTML = `<span style='flex:1;'><b>${u.name}</b> <span style='color:#888;font-size:0.97em;'>${u.email}</span></span><button data-i='${i}' class='btn btn-outline' style='padding:0.2rem 0.7rem;font-size:0.9em;'>Supprimer</button>`;
+                    li.querySelector('button').onclick = function() {
+                        const users = getUsers();
+                        users.splice(i, 1);
+                        saveUsers(users);
+                        renderUsers();
+                    };
+                    list.appendChild(li);
+                });
+            }
+            const form = document.getElementById('user-form');
+            if (form) {
+                form.onsubmit = function(e) {
+                    e.preventDefault();
+                    const name = document.getElementById('user-name').value.trim();
+                    const email = document.getElementById('user-email').value.trim();
+                    if (!name || !email) return;
+                    const users = getUsers();
+                    users.push({ name, email });
+                    saveUsers(users);
+                    renderUsers();
+                    form.reset();
+                };
+            }
+            renderUsers();
+        })();
         // --- Static password overlay (JS-only, not secure for production) ---
         (function() {
             var overlay = document.getElementById('admin-protect-overlay');
